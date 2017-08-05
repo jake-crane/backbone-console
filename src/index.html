@@ -45,27 +45,25 @@
     <div id="configuration-collection-container"></div>
 
     <script id="configuration-template" type="template/text">
-        <tr class="configuration-template">
-            <td>
-                <%-key%>
-            </td>
-            <td>
-                <%-name%>
-            </td>
-            <td>
-                <%-value%>
-            </td>
-            <td>
-                <%-description%>
-            </td>
-            <td class="typeColumn">
-                <%-type%>
-            </td>
-            <td class="buttonColumn">
-                <button class="btn btn-danger btn-xs glyphicon glyphicon-remove" onclick="deleteConfiguration(<%-id%>)"></button>
-                <button class="btn btn-primary btn-xs glyphicon glyphicon-pencil" onclick="editConfiguration(<%-id%>)"></button>
-            </td>
-        </tr>
+        <td>
+            <%-key%>
+        </td>
+        <td>
+            <%-name%>
+        </td>
+        <td>
+            <%-value%>
+        </td>
+        <td>
+            <%-description%>
+        </td>
+        <td class="typeColumn">
+            <%-type%>
+        </td>
+        <td class="buttonColumn">
+            <button class="btn btn-danger btn-xs glyphicon glyphicon-remove" onclick="deleteConfiguration(<%-id%>)"></button>
+            <button class="btn btn-primary btn-xs glyphicon glyphicon-pencil" onclick="editConfiguration(<%-id%>)"></button>
+        </td>
     </script>
 
     <script id="configuration-collection-template" type="template/text">
@@ -85,7 +83,7 @@
                                 </tr>
                             </thead>
                             <% _.each(obj, function(configuration){%>
-                                <%= new app.ConfigurationView({model: configuration}).render().$el.html() %>
+                                <%= new app.ConfigurationView({model: configuration}).render().$el[0].outerHTML %>
                             <% }); %>
                         </table>
                     </div>
