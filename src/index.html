@@ -62,8 +62,8 @@
                 <%-type%>
             </td>
             <td class="buttonColumn">
-                <button class="btn btn-danger btn-xs glyphicon glyphicon-remove" (click)="deleteConfiguration()"></button>
-                <button class="btn btn-primary btn-xs glyphicon glyphicon-pencil" (click)="editConfiguration()"></button>
+                <button class="btn btn-danger btn-xs glyphicon glyphicon-remove" onclick="deleteConfiguration(<%-id%>)"></button>
+                <button class="btn btn-primary btn-xs glyphicon glyphicon-pencil" onclick="editConfiguration(<%-id%>)"></button>
             </td>
         </tr>
     </script>
