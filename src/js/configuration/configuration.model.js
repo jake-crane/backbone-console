@@ -11,5 +11,14 @@ app.Configuration = Backbone.Model.extend({
       type: '',
       id: -1
     };
+  },
+  edit: function () {
+    this.set('editMode', true);
+  },
+  cancelEdit: function () {
+    this.set('editMode', false);
+  },
+  delete: function () {
+    this.destroy();
   }
 });

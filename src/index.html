@@ -61,8 +61,8 @@
             <%-type%>
         </td>
         <td class="buttonColumn">
-            <button class="btn btn-danger btn-xs glyphicon glyphicon-remove" onclick="deleteConfiguration(<%-id%>)"></button>
-            <button class="btn btn-primary btn-xs glyphicon glyphicon-pencil" onclick="editConfiguration(<%-id%>)"></button>
+            <button class="btn btn-danger btn-xs glyphicon glyphicon-remove delete-btn"></button>
+            <button class="btn btn-primary btn-xs glyphicon glyphicon-pencil edit-btn"></button>
         </td>
     </script>
 
@@ -82,9 +82,7 @@
                                     <th class="buttonColumn">Action</th>
                                 </tr>
                             </thead>
-                            <% _.each(obj, function(configuration){%>
-                                <%= new app.ConfigurationView({model: configuration}).render().$el[0].outerHTML %>
-                            <% }); %>
+                            <tbody></tbody>
                         </table>
                     </div>
                 </div>

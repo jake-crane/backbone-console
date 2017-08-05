@@ -9,7 +9,12 @@ app.ConfigurationCollectionView = Backbone.View.extend({
     this.model.on('remove', this.render, this);
   },
   render: function () {
-    this.$el.html(this.template(this.model.models));
+    this.$el.html(this.template());
+    var self = this;
+    _.each(this.model.models, function (configuration) {
+      var $config = new app.ConfigurationView({model: configuration }).render().$el;
+      self.$el.find('tbody').append($config);
+    });
     return this;
   }
 });
