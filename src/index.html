@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>AWD Configuration Console</title>
+    <link rel="icon" type="image/x-icon" href="./img/backbone.png">
+
+    <script src="./thirdParty/jquery.js"></script>
+    <script src="./thirdParty/underscore.js"></script>
+    <script src="./thirdParty/backbone.js"></script>
+    <link rel="stylesheet" href="./thirdParty/bootstrap-3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a class="navbar-brand" href="#">
+                <img class="App-logo" src="./img/backbone.png">
+                <span>AWD Configuration Console</span>
+            </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Configuration</a></li>
+                    <li><a href="#">Actions</a></li>
+                    <li><a href="#">Metrics</a></li>
+                    <li><a href="#">Audit</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchValue" (ngModelChange)="onSearchKeypress()">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div id="configuration-collection-container"></div>
+
+    <script id="configuration-template" type="template/text">
+        <tr class="configuration-template">
+            <td>
+                <%-key%>
+            </td>
+            <td>
+                <%-name%>
+            </td>
+            <td>
+                <%-value%>
+            </td>
+            <td>
+                <%-description%>
+            </td>
+            <td class="typeColumn">
+                <%-type%>
+            </td>
+            <td class="buttonColumn">
+                <button class="btn btn-danger btn-xs glyphicon glyphicon-remove" (click)="deleteConfiguration()"></button>
+                <button class="btn btn-primary btn-xs glyphicon glyphicon-pencil" (click)="editConfiguration()"></button>
+            </td>
+        </tr>
+    </script>
+
+    <script id="configuration-collection-template" type="template/text">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 content">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Key</th>
+                                    <th>Name</th>
+                                    <th>Value</th>
+                                    <th>Description</th>
+                                    <th class="typeColumn">Type</th>
+                                    <th class="buttonColumn">Action</th>
+                                </tr>
+                            </thead>
+                            <% _.each(obj, function(configuration){%>
+                                <%= new app.ConfigurationView({model: configuration}).render().$el.html() %>
+                            <% }); %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script src="./js/configuration/configuration.model.js"></script>
+    <script src="./js/configuration/configuration.view.js"></script>
+    <script src="./js/configuration-collection/configuration-collection.collection.js"></script>
+    <script src="./js/configuration-collection/configuration-collection.view.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
