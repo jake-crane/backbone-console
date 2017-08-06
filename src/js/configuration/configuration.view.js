@@ -12,10 +12,12 @@ app.ConfigurationView = Backbone.View.extend({
   },
   events: {
     'click .delete-btn': 'delete',
-    'click .edit-btn': 'edit'
+    'click .edit-btn': 'edit',
+    'click .cancel-btn': 'cancel',
+    'click .save-btn': 'save'
   },
   render: function () {
-    this.$el.html(this.template(this.model.toJSON()));
+    this.$el.html(this.template(this.model.attributes));
     return this;
   },
   edit: function (e) {
@@ -23,5 +25,20 @@ app.ConfigurationView = Backbone.View.extend({
   },
   delete: function (e) {
     this.model.delete();
+  },
+  cancel: function (e) {
+    this.model.cancelEdit();
+  },
+  save: function (e) {
+    var updatedconfiguration = {
+      editMode: false,
+      name: this.$el.find('.name').val(),
+      key: this.$el.find('.key').val(),
+      value: this.$el.find('.value').val(),
+      description: this.$el.find('.description').val(),
+      type: this.$el.find('.type').val(),
+      id: this.model.id
+    };
+    this.model.saveConfig(updatedconfiguration);
   }
 });
