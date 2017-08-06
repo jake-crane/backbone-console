@@ -11,12 +11,12 @@ app.ConfigurationCollectionView = Backbone.View.extend({
   },
   render: function () {
     this.$el.html(this.template());
-    var self = this;
+    var $tbody = this.$el.find('tbody');
     _.each(this.model.models, function (config) {
       var $config = new app.ConfigurationView({
         model: config
       }).render().$el;
-      self.$el.find('tbody').append($config);
+      $tbody.append($config);
     });
     return this;
   }
