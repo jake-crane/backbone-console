@@ -4,6 +4,12 @@ app.ConfigurationView = Backbone.View.extend({
   tagName: 'tr',
   className: 'configuration-view',
   template: _.template($('#configuration-template').html()),
+  attributes: function () {
+    var attributes = {};
+    if (this.model.attributes.hidden)
+      attributes.hidden = '';
+    return attributes;
+  },
   events: {
     'click .delete-btn': 'delete',
     'click .edit-btn': 'edit'

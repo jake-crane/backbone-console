@@ -13,13 +13,11 @@ app.ConfigurationCollectionView = Backbone.View.extend({
     this.$el.html(this.template());
     var self = this;
     _.each(this.model.models, function (config) {
-      if (!config.attributes.hidden) {
-        var view = config.attributes.editMode ? app.EditConfigurationView : app.ConfigurationView;
-        var $config = new view({
-          model: config
-        }).render().$el;
-        self.$el.find('tbody').append($config);
-      }
+      var view = config.attributes.editMode ? app.EditConfigurationView : app.ConfigurationView;
+      var $config = new view({
+        model: config
+      }).render().$el;
+      self.$el.find('tbody').append($config);
     });
     return this;
   }
