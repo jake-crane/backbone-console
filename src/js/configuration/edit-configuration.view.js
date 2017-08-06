@@ -9,10 +9,6 @@ app.EditConfigurationView = Backbone.View.extend({
     'click .cancel-btn': 'cancel',
     'click .save-btn': 'save'
   },
-
-  initialize: function () {
-    this.listenTo(this.model, "change", this.render);
-  },
   render: function () {
     this.$el.html(this.template(this.model.toJSON()));
     return this;

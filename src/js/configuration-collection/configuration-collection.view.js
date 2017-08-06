@@ -5,9 +5,9 @@ app.ConfigurationCollectionView = Backbone.View.extend({
   el: $('#configuration-collection-container'),
 
   initialize: function () {
-    this.model.on('add', this.render, this);
-    this.model.on('remove', this.render, this);
-    this.model.on('change', this.render, this);
+    this.model.on('update', this.render, this); //used to render after fetch
+    this.model.on('search', this.render, this); //used to render after search
+    this.model.on('change', this.render, this); //used to render after enabling edit mode
   },
   render: function () {
     this.$el.html(this.template());
