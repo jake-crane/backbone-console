@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
@@ -69,6 +69,32 @@
         </td>
     </script>
 
+    <script id="edit-configuration-template" type="template/text">
+        <td>
+            <input class="key form-control input-sm" value="<%-key%>" />
+        </td>
+        <td>
+            <input class="name form-control input-sm" value="<%-name%>" />
+        </td>
+        <td>
+            <textarea class="value form-control input-sm"><%-value%></textarea>
+        </td>
+        <td>
+            <textarea class="description form-control"><%-description%></textarea>
+        </td>
+        <td class="typeColumn">
+            <select class="type form-control input-sm">
+            <option value="TEXT" <%-type === 'TEXT' ? 'selected' : ''%>>TEXT</option>
+            <option value="XML" <%-type === 'XML' ? 'selected' : ''%>>XML</option>
+            <option value="ENC_PASSWORD" <%-type === 'ENC_PASSWORD' ? 'selected' : ''%>>ENC_PASSWORD</option>
+        </select>
+        </td>
+        <td class="buttonColumn">
+            <button class="btn btn-danger btn-xs glyphicon glyphicon-ban-circle cancel-btn"></button>
+            <button class="btn btn-primary btn-xs glyphicon glyphicon-floppy-disk save-btn"></button>
+        </td>
+    </script>
+
     <script id="configuration-collection-template" type="template/text">
         <div class="container-fluid">
             <div class="row">
@@ -94,6 +120,7 @@
     </script>
 
     <script src="./js/configuration/configuration.model.js"></script>
+    <script src="./js/configuration/edit-configuration.view.js"></script>
     <script src="./js/configuration/configuration.view.js"></script>
     <script src="./js/configuration-collection/configuration-collection.collection.js"></script>
     <script src="./js/configuration-collection/configuration-collection.view.js"></script>
