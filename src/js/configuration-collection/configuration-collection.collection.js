@@ -24,7 +24,6 @@ app.ConfigurationCollection = Backbone.Collection.extend({
     return s1 && (s2 || s2 === '') && s1.toUpperCase().indexOf(s2.toUpperCase()) > -1;
   },
   filter(s) {
-    this.searching = true;
     var self = this;
     _.each(this.models, function (config) {
       config.set({
@@ -34,8 +33,7 @@ app.ConfigurationCollection = Backbone.Collection.extend({
           self.stringContainsIgnoreCase(config.attributes.value, s) ||
           self.stringContainsIgnoreCase(config.attributes.description, s) ||
           self.stringContainsIgnoreCase(config.attributes.type, s))
-      });
+      }, {searching: true});
     });
-    this.searching = false;
   }
 });
