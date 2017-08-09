@@ -7,7 +7,12 @@ app.ConfigurationCollectionView = Backbone.View.extend({
   initialize: function () {
     this.model.on('update', this.render, this); //used to render after fetch
     this.model.on('search', this.render, this); //used to render after search
-    this.model.on('change', this.render, this); //used to render after enabling edit mode
+    this.model.on('change', this.change, this); //used to render after enabling edit mode
+  },
+  change: function () {
+    //We do not want to re-render all of the configurations each time one changes due to a search
+    if (!this.model.searching)
+      this.render();
   },
   render: function () {
     this.$el.html(this.template());

@@ -5,7 +5,7 @@ app.ConfigurationView = Backbone.View.extend({
   className: 'configuration-view',
   template: _.template($('#configuration-template').html()),
   attributes: function () {
-    var attributes = {};
+    var attributes = {id : this.model.id};
     if (this.model.attributes.hidden)
       attributes.hidden = '';
     return attributes;
