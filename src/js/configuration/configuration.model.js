@@ -8,8 +8,7 @@ app.Configuration = Backbone.Model.extend({
       key: '',
       value: '',
       description: '',
-      type: '',
-      id: -1
+      type: ''
     };
   },
   edit: function () {
