@@ -21,16 +21,20 @@ app.ConfigurationView = Backbone.View.extend({
     return this;
   },
   edit: function (e) {
-    this.model.edit();
+    this.model.set({
+      editMode: true
+    });
   },
   delete: function (e) {
-    this.model.delete();
+    this.model.destroy();
   },
   cancel: function (e) {
-    this.model.cancelEdit();
+    this.model.set({
+      editMode: false
+    });
   },
   save: function (e) {
-    var updatedconfiguration = {
+    var updatedConfig = {
       editMode: false,
       name: this.$el.find('.name').val(),
       key: this.$el.find('.key').val(),
@@ -39,6 +43,6 @@ app.ConfigurationView = Backbone.View.extend({
       type: this.$el.find('.type').val(),
       id: this.model.id
     };
-    this.model.saveConfig(updatedconfiguration);
+    this.model.save(updatedConfig);
   }
 });

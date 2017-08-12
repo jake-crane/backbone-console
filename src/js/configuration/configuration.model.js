@@ -11,22 +11,6 @@ app.Configuration = Backbone.Model.extend({
       type: ''
     };
   },
-  edit: function () {
-    this.set({
-      editMode: true
-    });
-  },
-  cancelEdit: function () {
-    this.set({
-      editMode: false
-    });
-  },
-  saveConfig: function (updatedConfiguration) {
-    this.save(updatedConfiguration);
-  },
-  delete: function () {
-    this.destroy();
-  },
   toJSON: function () {
     return {
       name: this.attributes.name,
