@@ -8,9 +8,9 @@ app.ConfigurationCollectionView = Backbone.View.extend({
     'click .add-btn': 'add'
   },
   initialize: function () {
-    this.model.on('update', this.render, this); //used to render after fetch
-    this.model.on('search', this.render, this); //used to render after search
-    this.model.on('change', this.change, this); //used to render after enabling edit mode
+    this.collection.on('update', this.render, this); //used to render after fetch
+    this.collection.on('search', this.render, this); //used to render after search
+    this.collection.on('change', this.change, this); //used to render after enabling edit mode
   },
   add: function() {
     var newConfiguration = {
@@ -20,7 +20,7 @@ app.ConfigurationCollectionView = Backbone.View.extend({
       description: this.$el.find('.description').val(),
       type: this.$el.find('.type').val()
     };
-    this.model.create(newConfiguration);
+    this.collection.create(newConfiguration);
   },
   change: function (model, options) {
     // We do not want to re-render the entire collection
@@ -31,7 +31,7 @@ app.ConfigurationCollectionView = Backbone.View.extend({
   render: function () {
     this.$el.html(this.template());
     var $tbody = this.$el.find('tbody');
-    _.each(this.model.models, function (config) {
+    _.each(this.collection.models, function (config) {
       var $config = new app.ConfigurationView({
         model: config
       }).render().$el;
