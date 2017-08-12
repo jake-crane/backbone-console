@@ -23,7 +23,8 @@ app.ConfigurationCollectionView = Backbone.View.extend({
     this.model.create(newConfiguration);
   },
   change: function (model, options) {
-    //We do not want to re-render all of the configurations each time one changes due to a search
+    // We do not want to re-render the entire collection
+    // each time one changes due to a search
     if (!options.searching)
       this.render();
   },
