@@ -1,15 +1,12 @@
-.table-responsive {
+.configuration-collection-view table {
+    margin-bottom: 0;
     background-color: white;
 }
 
-.table {
-    margin-bottom: 0;
-}
-
-.buttonColumn {
+.configuration-collection-view .buttonColumn {
     width: 73px;
 }
 
-.typeColumn {
-    max-width: 25px;
+.configuration-collection-view .typeColumn {
+      max-width: 68px; 
 }
