@@ -56,7 +56,11 @@
                 <input class="name form-control input-sm" value="<%-name%>" />
             </td>
             <td>
-                <textarea class="value form-control input-sm"><%-value%></textarea>
+                <% if (type === 'ENC_PASSWORD') { %>
+                    <input type="password" class="value form-control input-sm" value="<%-value%>" />
+                <% } else { %>
+                    <textarea class="value form-control input-sm"><%-value%></textarea>
+                <% } %>
             </td>
             <td>
                 <textarea class="description form-control"><%-description%></textarea>
@@ -79,9 +83,13 @@
             <td>
                 <%-name%>
             </td>
-            <td>
-                <%-value%>
-            </td>
+            <% if (type === 'ENC_PASSWORD') { %>
+                <td class="passwordContent"></td>
+            <% } else { %>
+                <td>
+                    <%-value%>
+                </td>
+            <% } %>
             <td>
                 <%-description%>
             </td>

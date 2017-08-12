@@ -24,7 +24,7 @@ button {
     margin: 1px;
 }
 
-input.key, input.name, textarea.description, textarea.value, select.type {
+input.key, input.name, textarea.description, input.value, textarea.value, select.type {
     min-width: 100%;
     max-width: 100%;
     height: 35px;
