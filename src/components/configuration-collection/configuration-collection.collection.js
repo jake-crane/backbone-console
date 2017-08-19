@@ -22,10 +22,10 @@ module.exports = Backbone.Collection.extend({
   parse: function (response, options) {
     return response.configuration;
   },
-  stringContainsIgnoreCase(s1, s2) {
+  stringContainsIgnoreCase: function(s1, s2) {
     return s1 && (s2 || s2 === '') && s1.toUpperCase().indexOf(s2.toUpperCase()) > -1;
   },
-  filter(s) {
+  filter: function(s) {
     var self = this;
     _.each(this.models, function (config) {
       config.set({
