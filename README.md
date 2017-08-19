@@ -1,7 +1,8 @@
 This is a backbone POC project to replace the AWD configuration console.
 
-run npm install to download dependencies.
-run npm start to start application.
+run "npm install" to download dependencies.
+run "npm run build" to run webpack.
+run "npm start" to start the http server.
 
 Things this does better than the old console:
 * Users can search for a configuration.
