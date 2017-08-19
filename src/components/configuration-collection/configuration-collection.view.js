@@ -1,6 +1,9 @@
-window.app = window.app || {};
+var _ = require('lodash');
+var Backbone = require('backbone');
+var $ = require('jquery');
+var ConfigurationView = require('../configuration/configuration.view');
 
-app.ConfigurationCollectionView = Backbone.View.extend({
+module.exports = Backbone.View.extend({
   template: _.template($('#configuration-collection-template').html()),
   el: $('#configuration-collection-container'),
   newConfigurationMarkup: $('#new-configuration-template').html(),
@@ -32,7 +35,7 @@ app.ConfigurationCollectionView = Backbone.View.extend({
     this.$el.html(this.template());
     var $tbody = this.$el.find('tbody');
     _.each(this.collection.models, function (config) {
-      var $config = new app.ConfigurationView({
+      var $config = new ConfigurationView({
         model: config
       }).render().$el;
       $tbody.append($config);

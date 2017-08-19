@@ -1,6 +1,9 @@
-$(function () {
-    $('#search').on('keyup', search);
-    function search(e) {
-        app.configurationCollection.trigger('search', e.target.value);
+var $ = require('jquery');
+
+module.exports = {
+    init: function (configurationCollection) {
+        $('#search').on('keyup', function (e) {
+            configurationCollection.trigger('search', e.target.value);
+        });
     }
-});
+}

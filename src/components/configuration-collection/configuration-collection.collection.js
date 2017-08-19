@@ -1,8 +1,10 @@
-window.app = window.app || {};
+var Backbone = require('backbone');
+var $ = require('jquery');
+var Configuration = require('../configuration/configuration.model');
 
-app.ConfigurationCollection = Backbone.Collection.extend({
+module.exports = Backbone.Collection.extend({
   url: './configurations/', //used for fetch
-  model: app.Configuration,
+  model: Configuration,
   initialize: function () {
     this.fetch({
       success: this.fetchSuccess

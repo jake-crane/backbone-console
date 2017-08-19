@@ -1,6 +1,8 @@
-window.app = window.app || {};
+var _ = require('lodash');
+var Backbone = require('backbone');
+var $ = require('jquery');
 
-app.ConfigurationView = Backbone.View.extend({
+module.exports = Backbone.View.extend({
   tagName: 'tr',
   className: 'configuration-view',
   template: _.template($('#configuration-template').html()),

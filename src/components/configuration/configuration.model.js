@@ -1,6 +1,6 @@
-window.app = window.app || {};
+var Backbone = require('backbone');
 
-app.Configuration = Backbone.Model.extend({
+module.exports = Backbone.Model.extend({
   urlRoot: './configurations/', //used for save, destroy etc.
   defaults: function () {
     return {
