@@ -5,16 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"lint": "eslint .",
+    "test": "mocha --reporter progress \"test/**/*.test.js\"",
+    "lint": "eslint .",
     "build": "webpack"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.1.1",
     "eslint": "^4.5.0",
     "eslint-plugin-backbone": "^2.1.1",
     "eslint-plugin-lodash": "^2.4.5",
+    "mocha": "^3.5.0",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
   },
