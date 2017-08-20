@@ -34,7 +34,7 @@ module.exports = Backbone.View.extend({
 	render: function () {
 		this.$el.html(this.template());
 		var $tbody = this.$el.find('tbody');
-		_.each(this.collection.models, function (config) {
+		_.forEach(this.collection.models, function (config) {
 			var $config = new ConfigurationView({
 				model: config
 			}).render().$el;

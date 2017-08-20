@@ -1,7 +1,6 @@
 var Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
-	urlRoot: './configurations/', //used for save, destroy etc.
 	defaults: function () {
 		return {
 			name: '',
@@ -11,14 +10,15 @@ module.exports = Backbone.Model.extend({
 			type: ''
 		};
 	},
+	urlRoot: './configurations/', //used for save, destroy etc.
 	toJSON: function () {
 		return {
-			name: this.attributes.name,
-			key: this.attributes.key,
-			value: this.attributes.value,
-			description: this.attributes.description,
-			type: this.attributes.type,
-			id: this.attributes.id
+			name: this.get('name'),
+			key: this.get('key'),
+			value:this.get('value'),
+			description: this.get('description'),
+			type: this.get('type'),
+			id: this.get('id')
 		};
 	}
 });

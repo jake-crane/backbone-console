@@ -3,6 +3,12 @@ var Backbone = require('backbone');
 var $ = require('jquery');
 
 module.exports = Backbone.View.extend({
+	events: {
+		'click .delete-btn': 'delete',
+		'click .edit-btn': 'edit',
+		'click .cancel-btn': 'cancel',
+		'click .save-btn': 'save'
+	},
 	tagName: 'tr',
 	className: 'configuration-view',
 	template: _.template($('#configuration-template').html()),
@@ -10,15 +16,9 @@ module.exports = Backbone.View.extend({
 		var attributes = {
 			id: this.model.id
 		};
-		if (this.model.attributes.hidden)
+		if (this.model.get('hidden'))
 			attributes.hidden = '';
 		return attributes;
-	},
-	events: {
-		'click .delete-btn': 'delete',
-		'click .edit-btn': 'edit',
-		'click .cancel-btn': 'cancel',
-		'click .save-btn': 'save'
 	},
 	render: function () {
 		this.$el.html(this.template(this.model.attributes));
