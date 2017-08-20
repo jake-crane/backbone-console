@@ -2,7 +2,7 @@ var expect = require('chai').expect;
 var Configuration = require('../../../src/components/configuration/configuration.model');
 
 describe('Configuration model test', function () {
-	it('should ignore extra attributes', function () {
+	it('JSON.stringify should ignore extra attributes', function () {
 		var config = new Configuration({
 			name: 'config name',
 			key: 'config key',

@@ -1,8 +1,9 @@
 {
+	"root": true,
 	"env": {
 		"browser": true,
 		"commonjs": true,
-		"es6": false
+		"mocha": true
 	},
 	"plugins": [
 		"lodash",
@@ -33,6 +34,12 @@
 		"no-unused-vars": ["warn", {
 			"args": "all",
 			"argsIgnorePattern": "^e$|^evt$"
-		}]
+		}],
+		"lodash/prefer-lodash-method": [
+			1,
+			{
+				"ignoreMethods": ["find"]
+			}
+		]
 	}
 }

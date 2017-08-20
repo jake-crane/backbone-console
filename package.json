@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "test": "mocha --reporter progress \"test/**/*.test.js\"",
-    "lint": "eslint .",
+    "lint": "eslint --color .",
     "build": "webpack"
   },
   "author": "",
