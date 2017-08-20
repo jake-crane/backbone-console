@@ -1,4 +1,4 @@
-var _ = require('lodash');
+var forEach = require('lodash').forEach;
 var Backbone = require('backbone');
 var $ = require('jquery');
 var Configuration = require('../configuration/configuration.model');
@@ -28,7 +28,7 @@ module.exports = Backbone.Collection.extend({
 	},
 	filter: function (s) {
 		var self = this;
-		_.each(this.models, function (config) {
+		forEach(this.models, function (config) {
 			config.set({
 				hidden: !(
 					self.stringContainsIgnoreCase(config.attributes.name, s) ||

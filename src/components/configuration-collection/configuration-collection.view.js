@@ -1,20 +1,21 @@
-var _ = require('lodash');
+var forEach = require('lodash').forEach;
+var template = require('lodash').template;
 var Backbone = require('backbone');
 var $ = require('jquery');
 var ConfigurationView = require('../configuration/configuration.view');
 
 module.exports = Backbone.View.extend({
-	template: _.template($('#configuration-collection-template').html()),
-	el: $('#configuration-collection-container'),
-	newConfigurationMarkup: $('#new-configuration-template').html(),
 	events: {
 		'click .add-btn': 'add'
 	},
 	initialize: function () {
-		this.collection.on('update', this.render, this); //used to render after fetch
-		this.collection.on('search', this.render, this); //used to render after search
-		this.collection.on('change', this.change, this); //used to render after enabling edit mode
+		this.listenTo(this.collection, 'update', this.render); //used to render after fetch
+		this.listenTo(this.collection, 'search', this.render); //used to render after search
+		this.listenTo(this.collection, 'change', this.change); //used to render after enabling edit mode
 	},
+	template: template($('#configuration-collection-template').html()),
+	el: $('#configuration-collection-container'),
+	newConfigurationMarkup: $('#new-configuration-template').html(),
 	add: function () {
 		var newConfiguration = {
 			key: this.$el.find('.key').val(),
@@ -33,8 +34,8 @@ module.exports = Backbone.View.extend({
 	},
 	render: function () {
 		this.$el.html(this.template());
-		var $tbody = this.$el.find('tbody');
-		_.forEach(this.collection.models, function (config) {
+		var $tbody = this.$('tbody');
+		forEach(this.collection.models, function (config) {
 			var $config = new ConfigurationView({
 				model: config
 			}).render().$el;

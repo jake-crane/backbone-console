@@ -1,4 +1,4 @@
-var _ = require('lodash');
+var template = require('lodash').template;
 var Backbone = require('backbone');
 var $ = require('jquery');
 
@@ -11,7 +11,7 @@ module.exports = Backbone.View.extend({
 	},
 	tagName: 'tr',
 	className: 'configuration-view',
-	template: _.template($('#configuration-template').html()),
+	template: template($('#configuration-template').html()),
 	attributes: function () {
 		var attributes = {
 			id: this.model.id
