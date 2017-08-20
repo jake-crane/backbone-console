@@ -1,8 +1,10 @@
 This is a backbone POC project to replace the configuration console.
 
 run "npm install" to download dependencies.
-run "npm run build" to run webpack.
-run "npm start" to start the http server.
+
+run "npm start" to build and start the http server.
+
+CI results can be found [here](https://travis-ci.org/jake-crane/backbone-console).
 
 Things this does better than the old console:
 * Users can search for a configuration.
@@ -11,4 +13,3 @@ Things this does better than the old console:
 * Everything is faster.
 * The entire page doesn't re-load for each change.
 * Configurations can be deleted.
-
