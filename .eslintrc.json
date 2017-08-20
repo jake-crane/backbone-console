@@ -3,7 +3,13 @@
 		"browser": true,
 		"commonjs": true
 	},
-	"extends": "eslint:recommended",
+	"plugins": [
+		"backbone"
+	],
+	"extends": [
+		"eslint:recommended",
+		"plugin:backbone/recommended"
+	],
 	"rules": {
 		"indent": [
 			"error",
