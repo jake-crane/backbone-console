@@ -4,7 +4,7 @@ var ConfigurationCollectionView = require('../components/configuration-collectio
 
 var configurationCollection = new ConfigurationCollection();
 var configurationCollectionView = new ConfigurationCollectionView({
-    collection: configurationCollection
+	collection: configurationCollection
 });
 
 search.init(configurationCollection);
