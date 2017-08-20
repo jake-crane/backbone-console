@@ -13,6 +13,7 @@
   "devDependencies": {
     "eslint": "^4.5.0",
     "eslint-plugin-backbone": "^2.1.1",
+    "eslint-plugin-lodash": "^2.4.5",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
   },

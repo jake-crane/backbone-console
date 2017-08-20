@@ -4,10 +4,12 @@
 		"commonjs": true
 	},
 	"plugins": [
+		"lodash",
 		"backbone"
 	],
 	"extends": [
 		"eslint:recommended",
+		"plugin:lodash/recommended",
 		"plugin:backbone/recommended"
 	],
 	"rules": {
