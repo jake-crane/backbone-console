@@ -1,4 +1,4 @@
-This is a backbone POC project to replace the AWD configuration console.
+This is a backbone POC project to replace the configuration console.
 
 run "npm install" to download dependencies.
 run "npm run build" to run webpack.
