@@ -1,9 +1,9 @@
-var forEach = require('lodash').forEach;
-var Backbone = require('backbone');
-var $ = require('jquery');
-var Configuration = require('../configuration/configuration.model');
+import forEach from 'lodash/forEach';
+import Backbone from 'backbone';
+import $ from 'jquery';
+import Configuration from '../configuration/configuration.model';
 
-module.exports = Backbone.Collection.extend({
+export default Backbone.Collection.extend({
 	url: './configurations/', //used for fetch
 	model: Configuration,
 	initialize: function () {
@@ -13,7 +13,7 @@ module.exports = Backbone.Collection.extend({
 		this.on('search', this.filter, this);
 	},
 	fetchSuccess: function (model, response, options) {
-		var csrf = options.xhr.getResponseHeader('CSRF_TOKEN');
+		const csrf = options.xhr.getResponseHeader('CSRF_TOKEN');
 		$.ajaxSetup({
 			beforeSend: function (xhr) {
 				xhr.setRequestHeader('CSRF_TOKEN', csrf);
@@ -27,7 +27,7 @@ module.exports = Backbone.Collection.extend({
 		return s1 && (s2 || s2 === '') && s1.toUpperCase().indexOf(s2.toUpperCase()) > -1;
 	},
 	filter: function (s) {
-		var self = this;
+		const self = this;
 		forEach(this.models, function (config) {
 			config.set({
 				hidden: !(

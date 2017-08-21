@@ -1,6 +1,6 @@
-var $ = require('jquery');
+import $ from 'jquery';
 
-module.exports = {
+export default {
 	init: function (configurationCollection) {
 		$('#search').on('keyup', function (e) {
 			configurationCollection.trigger('search', e.target.value);

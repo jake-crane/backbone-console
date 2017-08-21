@@ -7,7 +7,7 @@ module.exports = {
 	devtool: debug ? 'inline-sourcemap' : null,
 	entry: './src/js/main.js',
 	output: {
-		path: __dirname + "/src/js",
+		path: __dirname + '/src/js',
 		publicPath: '/js/',
 		filename: 'bundle.js'
 	},
@@ -17,6 +17,25 @@ module.exports = {
 		new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
 		new webpack.HotModuleReplacementPlugin()
 	],
+	module: {
+		rules: [
+			{
+				test: /\.js$/,
+				exclude: /(node_modules|bower_components)/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['env'],
+						plugins: [
+							require('babel-plugin-check-es2015-constants'),
+							require('babel-plugin-transform-es2015-arrow-functions'),
+							require('babel-plugin-transform-es2015-classes')
+						]
+					}
+				}
+			}
+		]
+	},
 	devServer: {
 		contentBase: path.join(__dirname, 'src'),
 		port: 9000,

@@ -1,8 +1,8 @@
-var template = require('lodash').template;
-var Backbone = require('backbone');
-var $ = require('jquery');
+import template from 'lodash/template';
+import Backbone from 'backbone';
+import $ from 'jquery';
 
-module.exports = Backbone.View.extend({
+export default Backbone.View.extend({
 	events: {
 		'click .delete-btn': 'delete',
 		'click .edit-btn': 'edit',
@@ -13,7 +13,7 @@ module.exports = Backbone.View.extend({
 	className: 'configuration-view',
 	template: template($('#configuration-template').html()),
 	attributes: function () {
-		var attributes = {
+		const attributes = {
 			id: this.model.id
 		};
 		if (this.model.get('hidden'))
@@ -38,7 +38,7 @@ module.exports = Backbone.View.extend({
 		});
 	},
 	save: function () {
-		var updatedConfig = {
+		const updatedConfig = {
 			editMode: false,
 			name: this.$el.find('.name').val(),
 			key: this.$el.find('.key').val(),

@@ -1,9 +1,9 @@
-var search = require('./search');
-var ConfigurationCollection = require('../components/configuration-collection/configuration-collection.collection');
-var ConfigurationCollectionView = require('../components/configuration-collection/configuration-collection.view');
+import search from './search';
+import ConfigurationCollection from '../components/configuration-collection/configuration-collection.collection';
+import ConfigurationCollectionView from '../components/configuration-collection/configuration-collection.view';
 
-var configurationCollection = new ConfigurationCollection();
-var configurationCollectionView = new ConfigurationCollectionView({
+const configurationCollection = new ConfigurationCollection();
+const configurationCollectionView = new ConfigurationCollectionView({
 	collection: configurationCollection
 });
 

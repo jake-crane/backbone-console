@@ -1,10 +1,10 @@
-var forEach = require('lodash').forEach;
-var template = require('lodash').template;
-var Backbone = require('backbone');
-var $ = require('jquery');
-var ConfigurationView = require('../configuration/configuration.view');
+import forEach from 'lodash/forEach';
+import template from 'lodash/template';
+import Backbone from 'backbone';
+import $ from 'jquery';
+import ConfigurationView from '../configuration/configuration.view';
 
-module.exports = Backbone.View.extend({
+export default Backbone.View.extend({
 	events: {
 		'click .add-btn': 'add'
 	},
@@ -17,7 +17,7 @@ module.exports = Backbone.View.extend({
 	el: $('#configuration-collection-container'),
 	newConfigurationMarkup: $('#new-configuration-template').html(),
 	add: function () {
-		var newConfiguration = {
+		const newConfiguration = {
 			key: this.$el.find('.key').val(),
 			name: this.$el.find('.name').val(),
 			value: this.$el.find('.value').val(),
@@ -34,9 +34,9 @@ module.exports = Backbone.View.extend({
 	},
 	render: function () {
 		this.$el.html(this.template());
-		var $tbody = this.$('tbody');
+		const $tbody = this.$('tbody');
 		forEach(this.collection.models, function (config) {
-			var $config = new ConfigurationView({
+			const $config = new ConfigurationView({
 				model: config
 			}).render().$el;
 			$tbody.append($config);

@@ -1,10 +1,10 @@
-var expect = require('chai').expect;
-var Configuration = require('../../../src/components/configuration/configuration.model');
+import { expect } from 'chai';
+import Configuration from '../../../src/components/configuration/configuration.model';
 
 describe('Configuration model test', function () {
 	it('should have the expected default attributes', function () {
-		var config = new Configuration();
-		var expectedDefaultAttributes = {
+		const config = new Configuration();
+		const expectedDefaultAttributes = {
 			name: '',
 			key: '',
 			value: '',
@@ -14,7 +14,7 @@ describe('Configuration model test', function () {
 		expect(config.attributes).to.deep.equal(expectedDefaultAttributes);
 	});
 	it('should ignore extra attributes', function () {
-		var config = new Configuration({
+		const config = new Configuration({
 			name: 'config name',
 			key: 'config key',
 			value: 'config value',
@@ -22,7 +22,7 @@ describe('Configuration model test', function () {
 			type: 'XML',
 			editMode: true
 		});
-		var json = JSON.stringify(config);
+		const json = JSON.stringify(config);
 		expect(json).to.equal('{"name":"config name","key":"config key","value":"config value","description":"config description","type":"XML"}');
 	});
 });
