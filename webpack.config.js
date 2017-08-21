@@ -25,7 +25,6 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['env'],
 						plugins: [
 							require('babel-plugin-check-es2015-constants'),
 							require('babel-plugin-transform-es2015-arrow-functions'),

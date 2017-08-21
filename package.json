@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "mocha --reporter progress \"test/**/*.test.js\"",
+    "test": "mocha --reporter progress --compilers js:babel-core/register \"test/**/*.test.js\"",
     "lint": "eslint --color .",
     "build": "webpack"
   },
