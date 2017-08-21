@@ -1,3 +1,4 @@
+import 'string.prototype.includes';
 import forEach from 'lodash/forEach';
 import Backbone from 'backbone';
 import $ from 'jquery';
@@ -24,10 +25,12 @@ export default Backbone.Collection.extend({
 		return response.configuration;
 	},
 	stringContainsIgnoreCase: function (s1, s2) {
-		return s1 && (s2 || s2 === '') && s1.toUpperCase().indexOf(s2.toUpperCase()) > -1;
+		// eslint-disable-next-line lodash/prefer-lodash-method
+		return s1 && (s2 || s2 === '') && s1.toUpperCase().includes(s2.toUpperCase());
 	},
 	filter: function (s) {
 		const self = this;
+		// eslint-disable-next-line backbone/no-collection-models
 		forEach(this.models, function (config) {
 			config.set({
 				hidden: !(

@@ -1,6 +1,5 @@
 import template from 'lodash/template';
 import Backbone from 'backbone';
-import $ from 'jquery';
 import configTemplate from './configuration.html';
 import './configuration.css';
 
@@ -23,6 +22,7 @@ export default Backbone.View.extend({
 		return attributes;
 	},
 	render: function () {
+		// eslint-disable-next-line backbone/no-view-model-attributes
 		this.$el.html(this.template(this.model.attributes));
 		return this;
 	},

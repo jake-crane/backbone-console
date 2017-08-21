@@ -38,6 +38,7 @@ export default Backbone.View.extend({
 	render: function () {
 		this.$el.html(this.template());
 		const $tbody = this.$('tbody');
+		// eslint-disable-next-line backbone/no-view-collection-models
 		forEach(this.collection.models, function (config) {
 			const $config = new ConfigurationView({
 				model: config

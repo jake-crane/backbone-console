@@ -1,12 +1,15 @@
 var path = require('path');
+// eslint-disable-next-line no-undef
 var debug = process.env.NODE_ENV !== 'production';
 var webpack = require('webpack');
 
 module.exports = {
+	// eslint-disable-next-line no-undef
 	context: __dirname,
 	devtool: debug ? 'inline-sourcemap' : null,
 	entry: './src/js/main.js',
 	output: {
+		// eslint-disable-next-line no-undef
 		path: __dirname + '/src/js',
 		publicPath: '/js/',
 		filename: 'bundle.js'
@@ -44,6 +47,7 @@ module.exports = {
 		]
 	},
 	devServer: {
+		// eslint-disable-next-line no-undef
 		contentBase: path.join(__dirname, 'src'),
 		port: 9000,
 		proxy: {
