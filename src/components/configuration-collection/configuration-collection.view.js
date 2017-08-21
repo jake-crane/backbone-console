@@ -3,6 +3,10 @@ import template from 'lodash/template';
 import Backbone from 'backbone';
 import $ from 'jquery';
 import ConfigurationView from '../configuration/configuration.view';
+import newConfigTemplate from './new-configuration.html';
+import './new-configuration.css';
+import collectionTemplate from './configuration-collection.html';
+import './configuration-collection.css';
 
 export default Backbone.View.extend({
 	events: {
@@ -13,9 +17,8 @@ export default Backbone.View.extend({
 		this.listenTo(this.collection, 'search', this.render); //used to render after search
 		this.listenTo(this.collection, 'change', this.change); //used to render after enabling edit mode
 	},
-	template: template($('#configuration-collection-template').html()),
+	template: template(collectionTemplate),
 	el: $('#configuration-collection-container'),
-	newConfigurationMarkup: $('#new-configuration-template').html(),
 	add: function () {
 		const newConfiguration = {
 			key: this.$el.find('.key').val(),
@@ -41,7 +44,7 @@ export default Backbone.View.extend({
 			}).render().$el;
 			$tbody.append($config);
 		});
-		$tbody.append(this.newConfigurationMarkup);
+		$tbody.append(newConfigTemplate);
 		return this;
 	}
 });

@@ -1,6 +1,8 @@
 import template from 'lodash/template';
 import Backbone from 'backbone';
 import $ from 'jquery';
+import configTemplate from './configuration.html';
+import './configuration.css';
 
 export default Backbone.View.extend({
 	events: {
@@ -11,7 +13,7 @@ export default Backbone.View.extend({
 	},
 	tagName: 'tr',
 	className: 'configuration-view',
-	template: template($('#configuration-template').html()),
+	template: template(configTemplate),
 	attributes: function () {
 		const attributes = {
 			id: this.model.id

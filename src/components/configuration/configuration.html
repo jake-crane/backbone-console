@@ -1,0 +1,53 @@
+<% if (obj.editMode) { %>
+    <td>
+        <input class="key form-control input-sm" value="<%-key%>" />
+    </td>
+    <td>
+        <input class="name form-control input-sm" value="<%-name%>" />
+    </td>
+    <td>
+        <% if (type === 'ENC_PASSWORD') { %>
+            <input type="password" class="value form-control input-sm" value="<%-value%>" />
+        <% } else { %>
+            <textarea class="value form-control input-sm"><%-value%></textarea>
+        <% } %>
+    </td>
+    <td>
+        <textarea class="description form-control"><%-description%></textarea>
+    </td>
+    <td class="typeColumn">
+        <select class="type form-control input-sm">
+        <option value="TEXT" <%-type === 'TEXT' ? 'selected' : ''%>>TEXT</option>
+        <option value="XML" <%-type === 'XML' ? 'selected' : ''%>>XML</option>
+        <option value="ENC_PASSWORD" <%-type === 'ENC_PASSWORD' ? 'selected' : ''%>>ENC_PASSWORD</option>
+    </select>
+    </td>
+    <td class="buttonColumn">
+        <button class="btn btn-danger btn-xs glyphicon glyphicon-ban-circle cancel-btn"></button>
+        <button class="btn btn-primary btn-xs glyphicon glyphicon-floppy-disk save-btn"></button>
+    </td>
+<% } else { %>
+    <td>
+        <%-key%>
+    </td>
+    <td>
+        <%-name%>
+    </td>
+    <% if (type === 'ENC_PASSWORD') { %>
+        <td class="passwordContent"></td>
+    <% } else { %>
+        <td>
+            <%-value%>
+        </td>
+    <% } %>
+    <td>
+        <%-description%>
+    </td>
+    <td class="typeColumn">
+        <%-type%>
+    </td>
+    <td class="buttonColumn">
+        <button class="btn btn-danger btn-xs glyphicon glyphicon-remove delete-btn"></button>
+        <button class="btn btn-primary btn-xs glyphicon glyphicon-pencil edit-btn"></button>
+    </td>
+<% } %>
