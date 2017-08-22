@@ -6,7 +6,7 @@ var webpack = require('webpack');
 module.exports = {
 	// eslint-disable-next-line no-undef
 	context: __dirname,
-	devtool: debug ? 'inline-sourcemap' : null,
+	devtool: debug ? 'inline-sourcemap' : 'sourcemap',
 	entry: './src/js/main.js',
 	output: {
 		// eslint-disable-next-line no-undef
@@ -14,11 +14,12 @@ module.exports = {
 		publicPath: '/js/',
 		filename: 'bundle.js'
 	},
-	plugins: debug ? [] : [
+	plugins: debug ? [
+		new webpack.HotModuleReplacementPlugin()
+	] : [
 		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.OccurenceOrderPlugin(),
 		new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-		new webpack.HotModuleReplacementPlugin()
 	],
 	module: {
 		rules: [
@@ -55,6 +56,6 @@ module.exports = {
 		},
 		compress: true,
 		open: true,
-		watchContentBase: true
+		hot: true
 	}
 };

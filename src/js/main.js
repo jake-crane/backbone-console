@@ -8,3 +8,6 @@ const configurationCollectionView = new ConfigurationCollectionView({
 });
 
 search.init(configurationCollection);
+
+if (module.hot)
+	module.hot.accept();
