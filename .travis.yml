@@ -1,11 +1,10 @@
+---
 language: node_js
 node_js:
   - "6"
-
-script:
-  - npm run lint
-  - npm test
-
-	notifications:
+notifications:
   email:
     - jake@jakecrane.com
+script:
+  - "npm run lint"
+  - "npm test"
