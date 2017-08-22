@@ -29,16 +29,15 @@ export default Backbone.Collection.extend({
 		return s1 && (s2 || s2 === '') && s1.toUpperCase().includes(s2.toUpperCase());
 	},
 	filter: function (s) {
-		const self = this;
 		// eslint-disable-next-line backbone/no-collection-models
-		forEach(this.models, function (config) {
+		forEach(this.models, config => {
 			config.set({
 				hidden: !(
-					self.stringContainsIgnoreCase(config.attributes.name, s) ||
-					self.stringContainsIgnoreCase(config.attributes.key, s) ||
-					self.stringContainsIgnoreCase(config.attributes.value, s) ||
-					self.stringContainsIgnoreCase(config.attributes.description, s) ||
-					self.stringContainsIgnoreCase(config.attributes.type, s))
+					this.stringContainsIgnoreCase(config.attributes.name, s) ||
+					this.stringContainsIgnoreCase(config.attributes.key, s) ||
+					this.stringContainsIgnoreCase(config.attributes.value, s) ||
+					this.stringContainsIgnoreCase(config.attributes.description, s) ||
+					this.stringContainsIgnoreCase(config.attributes.type, s))
 			}, {
 				searching: true
 			});
