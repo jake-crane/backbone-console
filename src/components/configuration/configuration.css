@@ -1,5 +1,5 @@
 .configuration-view td {
-    /* max-width: 50px; */
+    max-width: 50px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -9,8 +9,8 @@
     margin: 1px;
 }
 
-.configuration-view input, 
-.configuration-view textarea, 
+.configuration-view input,
+.configuration-view textarea,
 .configuration-view select {
     min-width: 100%;
     max-width: 100%;
