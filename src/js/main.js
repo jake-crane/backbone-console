@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import '../js/custom.configconsole';
-import search from './search';
+import '../components/config-console/custom.configconsole';
+import '../components/search/custom.search';
 
 $('#configuration-collection-container').configConsole();
-search.init();
+$('#search').search();
 
 if (module.hot)
 	module.hot.accept();

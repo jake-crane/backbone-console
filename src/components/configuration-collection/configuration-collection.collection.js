@@ -42,7 +42,6 @@ export default Backbone.Collection.extend({
 				searching: true
 			});
 		});
-		// eslint-disable-next-line backbone/no-collection-models
-		this.trigger('filtercomplete');
+		this.trigger('filterComplete');
 	}
 });
