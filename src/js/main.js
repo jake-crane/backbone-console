@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import '../components/config-console/custom.configconsole';
+import '../components/configuration-collection/custom.configurationCollection';
 import '../components/search/custom.search';
 
-$('#configuration-collection-container').configConsole();
+$('#configuration-collection-container').configCollection();
 $('#search').search();

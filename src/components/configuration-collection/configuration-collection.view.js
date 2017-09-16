@@ -12,11 +12,6 @@ export default Backbone.View.extend({
 	events: {
 		'click .add-btn': 'add'
 	},
-	initialize: function () {
-		this.listenTo(this.collection, 'update', this.render); //used to render after fetch
-		this.listenTo(this.collection, 'filterComplete', this.render); //used to render after search
-		this.listenTo(this.collection, 'change', this.change); //used to render after enabling edit mode
-	},
 	template: template(collectionTemplate),
 	add: function () {
 		const newConfiguration = {
@@ -26,7 +21,7 @@ export default Backbone.View.extend({
 			description: this.$el.find('.description').val(),
 			type: this.$el.find('.type').val()
 		};
-		this.collection.create(newConfiguration);
+		this.$el.trigger('add', newConfiguration);
 	},
 	change: function (model, options) {
 		// We do not want to re-render the entire collection
