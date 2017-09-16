@@ -4,6 +4,3 @@ import '../components/search/custom.search';
 
 $('#configuration-collection-container').configConsole();
 $('#search').search();
-
-if (module.hot)
-	module.hot.accept();
