@@ -1,9 +1,10 @@
+import Backbone from 'backbone';
 import $ from 'jquery';
 
 export default {
-	init: function (configurationCollection) {
+	init: function () {
 		$('#search').on('keyup', function (e) {
-			configurationCollection.trigger('search', e.target.value);
+			Backbone.trigger('search', e.target.value);
 		});
 	}
 };

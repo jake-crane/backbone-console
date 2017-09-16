@@ -14,11 +14,10 @@ export default Backbone.View.extend({
 	},
 	initialize: function () {
 		this.listenTo(this.collection, 'update', this.render); //used to render after fetch
-		this.listenTo(this.collection, 'search', this.render); //used to render after search
+		this.listenTo(this.collection, 'filterComplete', this.render); //used to render after search
 		this.listenTo(this.collection, 'change', this.change); //used to render after enabling edit mode
 	},
 	template: template(collectionTemplate),
-	el: $('#configuration-collection-container'),
 	add: function () {
 		const newConfiguration = {
 			key: this.$el.find('.key').val(),
