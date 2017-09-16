@@ -14,19 +14,6 @@ body {
   }
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 8s linear;
-  height: 40px;
-  float: left;
-  margin-top: -10px;
-  margin-right: 8px;
-}
-
 .navbar-default {
   background-color: rgb(147, 112, 219);
 }
