@@ -15,7 +15,7 @@ export default Backbone.Model.extend({
 		return {
 			name: this.get('name'),
 			key: this.get('key'),
-			value:this.get('value'),
+			value: this.get('value'),
 			description: this.get('description'),
 			type: this.get('type'),
 			id: this.get('id')

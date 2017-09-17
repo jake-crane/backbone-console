@@ -4,7 +4,7 @@ export default Backbone.View.extend({
 	events: {
 		'keyup': 'search',
 	},
-	search: function(e) {
+	search: function (e) {
 		Backbone.trigger('search', e.target.value);
 	}
 });
