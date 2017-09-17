@@ -23,17 +23,10 @@ export default Backbone.View.extend({
 		};
 		this.$el.trigger('add', newConfiguration);
 	},
-	change: function (model, options) {
-		// We do not want to re-render the entire collection
-		// each time one changes due to a search
-		if (!options.searching)
-			this.render();
-	},
-	render: function () {
+	render: function (models) {
 		this.$el.html(this.template());
 		const $tbody = this.$('tbody');
-		// eslint-disable-next-line backbone/no-view-collection-models
-		forEach(this.collection.models, function (config) {
+		forEach(models, function (config) {
 			const $config = new ConfigurationView({
 				model: config
 			}).render().$el;
