@@ -2,7 +2,7 @@ import forEach from 'lodash/forEach';
 import template from 'lodash/template';
 import Backbone from 'backbone';
 import $ from 'jquery';
-import ConfigurationView from '../configuration/configuration.view';
+import '../configuration/custom.config';
 import newConfigTemplate from './new-configuration.html';
 import './new-configuration.css';
 import collectionTemplate from './configuration-collection.html';
@@ -24,15 +24,14 @@ export default Backbone.View.extend({
 		this.$el.trigger('add', newConfiguration);
 	},
 	render: function (models) {
-		this.$el.html(this.template());
-		const $tbody = this.$('tbody');
+		const $template = $(this.template());
+		const $tbody = $template.find('tbody');
 		forEach(models, function (config) {
-			const $config = new ConfigurationView({
-				model: config
-			}).render().$el;
-			$tbody.append($config);
+			const $row = $('<tr></tr>').config({ $tbody, config });
+			$tbody.append($row);
 		});
 		$tbody.append(newConfigTemplate);
+		this.$el.html($template);
 		return this;
 	}
 });
