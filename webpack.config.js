@@ -44,6 +44,14 @@ module.exports = {
 			{
 				test: /\.html$/,
 				loader: 'html-loader'
+			},
+			{
+				test: /main\.js/,
+				exclude: /node_modules/,
+				loaders: [
+					'babel-loader',
+					'webpack-module-hot-accept'
+				]
 			}
 		]
 	},

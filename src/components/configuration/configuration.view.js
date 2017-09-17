@@ -10,34 +10,25 @@ export default Backbone.View.extend({
 		'click .cancel-btn': 'cancel',
 		'click .save-btn': 'save'
 	},
-	tagName: 'tr',
-	className: 'configuration-view',
 	template: template(configTemplate),
-	attributes: function () {
-		const attributes = {
-			id: this.model.id
-		};
-		if (this.model.get('hidden'))
-			attributes.hidden = '';
-		return attributes;
-	},
-	render: function () {
-		// eslint-disable-next-line backbone/no-view-model-attributes
-		this.$el.html(this.template(this.model.attributes));
+	render: function (model) {
+		this.$el.attr('id', model.id);
+		this.$el.addClass('configuration-view');
+		if (model.attributes.hidden)
+			this.$el.hide();
+		else
+			this.$el.show();
+		this.$el.html(this.template(model.attributes));
 		return this;
 	},
 	edit: function () {
-		this.model.set({
-			editMode: true
-		});
+		this.$el.trigger('edit');
 	},
 	delete: function () {
-		this.model.destroy();
+		this.$el.trigger('delete');
 	},
 	cancel: function () {
-		this.model.set({
-			editMode: false
-		});
+		this.$el.trigger('cancel');
 	},
 	save: function () {
 		const updatedConfig = {
@@ -47,8 +38,8 @@ export default Backbone.View.extend({
 			value: this.$el.find('.value').val(),
 			description: this.$el.find('.description').val(),
 			type: this.$el.find('.type').val(),
-			id: this.model.id
+			id: this.id
 		};
-		this.model.save(updatedConfig);
+		this.$el.trigger('save', updatedConfig);
 	}
 });

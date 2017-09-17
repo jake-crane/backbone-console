@@ -11,7 +11,7 @@ export default Backbone.Collection.extend({
 		this.fetch({
 			success: this.fetchSuccess
 		});
-		this.on('search', this.filter, this);
+		Backbone.on('search', this.filter, this);
 	},
 	fetchSuccess: function (model, response, options) {
 		const csrf = options.xhr.getResponseHeader('CSRF_TOKEN');
@@ -42,5 +42,6 @@ export default Backbone.Collection.extend({
 				searching: true
 			});
 		});
+		this.trigger('filterComplete');
 	}
 });
