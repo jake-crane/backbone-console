@@ -14,23 +14,6 @@ body {
   }
 }
 
-.navbar-default {
-  background-color: rgb(147, 112, 219);
-}
-
-.navbar-default .navbar-brand {
-  color: white;
-}
-
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-  color: white;
-  background-color: rgb(164, 129, 236);
-}
-
-.navbar-default .navbar-nav>li>a {
-  color: white;
-}
-
 .navbar-brand>img {
   display: inline-block;
 }
@@ -55,12 +38,10 @@ body {
   height: 100%;
   line-height: 100%;
   padding: 10px;
-  color: #fff;
   vertical-align: middle;
 }
 
 .navList a:hover {
-  color: white;
   text-decoration: none;
 }
 
@@ -84,12 +65,4 @@ body {
   height: 24px;
   padding: 4px;
   font-size: .7em;
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: white;
-}
-
-.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-  background-color: rgb(164, 129, 236);
 }
