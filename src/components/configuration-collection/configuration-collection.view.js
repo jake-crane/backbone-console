@@ -32,6 +32,7 @@ export default Backbone.View.extend({
 		});
 		$tbody.append(newConfigTemplate);
 		this.$el.html($template);
+		componentHandler.upgradeElements(this.el.getElementsByTagName("*"));
 		return this;
 	}
 });
