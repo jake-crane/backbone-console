@@ -5,6 +5,10 @@
     text-overflow: ellipsis;
 }
 
+.configuration-view td.buttonColumn  {
+    overflow: visible;
+}
+
 .configuration-view button {
     margin: 1px;
 }
