@@ -8,9 +8,9 @@
 	<td class="mdl-data-table__cell--non-numeric">
 		<% if (type === 'ENC_PASSWORD') { %>
 			<input type="password" class="value form-control input-sm" value="<%-value%>" />
-			<% } else { %>
-				<textarea class="value form-control input-sm"><%-value%></textarea>
-				<% } %>
+		<% } else { %>
+			<textarea class="value form-control input-sm"><%-value%></textarea>
+		<% } %>
 	</td>
 	<td class="mdl-data-table__cell--non-numeric">
 		<textarea class="description form-control"><%-description%></textarea>
@@ -22,39 +22,41 @@
 			<option value="ENC_PASSWORD" <%-type==='ENC_PASSWORD' ? 'selected' : ''%>>ENC_PASSWORD</option>
 		</select>
 	</td>
-	<td class="buttonColumn">
-		<button class="btn btn-danger btn-xs glyphicon glyphicon-ban-circle cancel-btn"></button>
-		<button class="btn btn-primary btn-xs glyphicon glyphicon-floppy-disk save-btn"></button>
+	<td class="edit-button-column">
+		<button class="mdl-button mdl-js-button mdl-button--icon cancel-btn">
+			<i class="material-icons">cancel</i>
+		</button>
+		<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored save-btn">
+			<i class="material-icons">save</i>
+		</button>
 	</td>
+<% } else { %>
+	<td class="mdl-data-table__cell--non-numeric">
+		<%-key%>
+	</td>
+	<td class="mdl-data-table__cell--non-numeric">
+		<%-name%>
+	</td>
+	<% if (type === 'ENC_PASSWORD') { %>
+		<td class="mdl-data-table__cell--non-numeric passwordContent"></td>
 	<% } else { %>
 		<td class="mdl-data-table__cell--non-numeric">
-			<%-key%>
+			<%-value%>
 		</td>
-		<td class="mdl-data-table__cell--non-numeric">
-			<%-name%>
-		</td>
-		<% if (type === 'ENC_PASSWORD') { %>
-			<td class="mdl-data-table__cell--non-numeric passwordContent"></td>
-			<% } else { %>
-				<td class="mdl-data-table__cell--non-numeric">
-					<%-value%>
-				</td>
-				<% } %>
-					<td class="mdl-data-table__cell--non-numeric">
-						<%-description%>
-					</td>
-					<td class="typeColumn mdl-data-table__cell--non-numeric">
-						<%-type%>
-					</td>
-					<td class="buttonColumn ">
-						<button id="demo-menu-lower-right<%-id%>" class="mdl-button mdl-js-button mdl-button--icon">
-							<i class="material-icons">more_vert</i>
-						</button>
-						<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right<%-id%>">
-							<li class="mdl-menu__item">Some Action</li>
-							<li class="mdl-menu__item">Another Action</li>
-							<li disabled class="mdl-menu__item">Disabled Action</li>
-							<li class="mdl-menu__item">Yet Another Action</li>
-						</ul>
-					</td>
-					<% } %>
+	<% } %>
+	<td class="mdl-data-table__cell--non-numeric">
+		<%-description%>
+	</td>
+	<td class="typeColumn mdl-data-table__cell--non-numeric">
+		<%-type%>
+	</td>
+	<td class="buttonColumn">
+		<button id="demo-menu-lower-right<%-id%>" class="mdl-button mdl-js-button mdl-button--icon">
+			<i class="material-icons">more_vert</i>
+		</button>
+		<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right<%-id%>">
+			<li class="mdl-menu__item edit-btn">Edit</li>
+			<li class="mdl-menu__item delete-btn">Delete</li>
+		</ul>
+	</td>
+<% } %>
