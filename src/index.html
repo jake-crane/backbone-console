@@ -2,56 +2,98 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <title>Configuration Console</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Configuration Console</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-red.min.css" />
-    <!-- <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script> -->
-    <script src="./js/material.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-red.min.css" />
+	<link rel="stylesheet" href="./css/style.css" />
+	<!-- <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script> -->
+	<script src="./js/material.js"></script>
 </head>
 
 <body>
 
-    <!-- Always shows a header, even in smaller screens. -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <!-- Title -->
-                <span class="mdl-layout-title">AWD Configuration Console</span>
-                <!-- Add spacer, to align navigation to the right -->
-                <div class="mdl-layout-spacer"></div>
-                <!-- Navigation. We hide it in small screens. -->
-                <nav class="mdl-navigation mdl-layout--large-screen-only">
-                    <a class="mdl-navigation__link" href="">Configuration</a>
-                    <a class="mdl-navigation__link" href="">Actions</a>
-                    <a class="mdl-navigation__link" href="">Metrics</a>
-                    <a class="mdl-navigation__link" href="">Audit</a>
-                </nav>
-            </div>
-        </header>
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">AWD Configuration Console</span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="#">Configurations</a>
-                <a class="mdl-navigation__link" href="#">Actions</a>
-                <a class="mdl-navigation__link" href="#">Metrics</a>
-                <a class="mdl-navigation__link" href="#">Audit</a>
-            </nav>
-        </div>
-        <main class="mdl-layout__content">
-            <div class="page-content">
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <div id="configuration-collection-container"></div>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
+	<!-- Always shows a header, even in smaller screens. -->
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="mdl-layout__header">
+			<div class="mdl-layout__header-row">
+				<!-- Title -->
+				<span class="mdl-layout-title">AWD Configuration Console</span>
+				<!-- Add spacer, to align navigation to the right -->
+				<div class="mdl-layout-spacer"></div>
+				<!-- Navigation. We hide it in small screens. -->
+				<nav class="mdl-navigation mdl-layout--large-screen-only">
+					<a class="mdl-navigation__link" href="">Configuration</a>
+					<a class="mdl-navigation__link" href="">Actions</a>
+					<a class="mdl-navigation__link" href="">Metrics</a>
+					<a class="mdl-navigation__link" href="">Audit</a>
+				</nav>
+			</div>
+		</header>
+		<div class="mdl-layout__drawer">
+			<span class="mdl-layout-title">AWD Configuration Console</span>
+			<nav class="mdl-navigation">
+				<a class="mdl-navigation__link" href="#">Configurations</a>
+				<a class="mdl-navigation__link" href="#">Actions</a>
+				<a class="mdl-navigation__link" href="#">Metrics</a>
+				<a class="mdl-navigation__link" href="#">Audit</a>
+			</nav>
+		</div>
+		<main class="mdl-layout__content">
+			<div class="page-content">
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--12-col">
+						<div id="configuration-collection-container"></div>
+					</div>
+				</div>
+				<div class="add-button-container">
+					<button id="add-button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+						<i class="material-icons">add</i>
+				  	</button>
+				</div>
+			</div>
+		</main>
+	</div>
 
-    <script src="./js/bundle.js"></script>
+	<dialog class="mdl-dialog new-config-dialog">
+		<div class="mdl-dialog__content">
+			<div class="mdl-textfield mdl-js-textfield">
+				<input class="mdl-textfield__input" type="text" id="key-input">
+				<label class="mdl-textfield__label" for="key-input">Key</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield">
+				<input class="mdl-textfield__input" type="text" id="name-input">
+				<label class="mdl-textfield__label" for="name-input">Name</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield">
+				<textarea class="mdl-textfield__input" type="text" rows="3" id="value-input"></textarea>
+				<label class="mdl-textfield__label" for="value-input">Value</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield">
+				<textarea class="mdl-textfield__input" type="text" rows="3" id="description-input"></textarea>
+				<label class="mdl-textfield__label" for="description-input">Value</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
+				<input class="mdl-textfield__input" type="text" id="type-input" value="TEXT" readonly tabIndex="-1">
+				<label for="type-input">
+						<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+					</label>
+				<label for="type-input" class="mdl-textfield__label">Type</label>
+				<ul for="type-input" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+					<li class="mdl-menu__item" data-val="DE">TEXT</li>
+					<li class="mdl-menu__item" data-val="BY">XML</li>
+					<li class="mdl-menu__item" data-val="RU">ENC_PASSWORD</li>
+				</ul>
+			</div>
+		</div>
+		<div class="mdl-dialog__actions">
+			<button type="button" class="mdl-button">Close</button>
+			<button type="button" class="mdl-button" > action</button>
+		</div>
+	</dialog>
+	<script src="./js/bundle.js"></script>
 </body>
 
 </html>
