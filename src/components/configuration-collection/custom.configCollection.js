@@ -31,7 +31,7 @@ export default widget('custom.configCollection', {
 		this._configCollectionView.render.call(this._configCollectionView, this._configCollection.models);
 	},
 
-	add: function (newConfig) {
-		this._configCollection.create(newConfig);
+	add: function (newConfig, addSuccess) {
+		this._configCollection.create(newConfig, { wait: true, success: addSuccess });
 	}
 });

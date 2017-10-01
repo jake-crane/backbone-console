@@ -23,5 +23,12 @@ $dialog.find('.create').on('click', () => {
 		description: $dialog.find('.description-input').val(),
 		type: $dialog.find('.type-input').val()
 	};
-	$configCollection.configCollection('add', newConfig);
+	$configCollection.configCollection('add', newConfig, () => {
+		$dialog[0].close();
+		$dialog.find('.key-input').val('');
+		$dialog.find('.name-input').val('');
+		$dialog.find('.value-input').val('');
+		$dialog.find('.description-input').val('');
+		$dialog.find('.type-input').val('');
+	});
 });
