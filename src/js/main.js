@@ -2,10 +2,26 @@ import $ from 'jquery';
 import '../components/configuration-collection/custom.configCollection';
 import '../components/search/custom.search';
 
-$('#configuration-collection-container').configCollection();
+const $configCollection = $('#configuration-collection-container');
+$configCollection.configCollection();
 $('#search').search();
 
-var dialog = document.querySelector('dialog');
+
+var $dialog = $('.new-config-dialog');
 $('#add-button').on('click', () => {
-	dialog.showModal();
+	$dialog[0].showModal();
+});
+
+$dialog.find('.cancel').on('click', () => {
+	$dialog[0].close();
+});
+$dialog.find('.create').on('click', () => {
+	const newConfig = {
+		key: $dialog.find('.key-input').val(),
+		name: $dialog.find('.name-input').val(),
+		value: $dialog.find('.value-input').val(),
+		description: $dialog.find('.description-input').val(),
+		type: $dialog.find('.type-input').val()
+	};
+	$configCollection.configCollection('add', newConfig);
 });

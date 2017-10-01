@@ -11,16 +11,6 @@ export default Backbone.View.extend({
 		'click .add-btn': 'add'
 	},
 	template: template(collectionTemplate),
-	add: function () {
-		const newConfiguration = {
-			key: this.$el.find('.key').val(),
-			name: this.$el.find('.name').val(),
-			value: this.$el.find('.value').val(),
-			description: this.$el.find('.description').val(),
-			type: this.$el.find('.type').val()
-		};
-		this.$el.trigger('add', newConfiguration);
-	},
 	render: function (models) {
 		const $template = $(this.template());
 		const $tbody = $template.find('tbody');

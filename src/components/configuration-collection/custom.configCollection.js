@@ -22,7 +22,6 @@ export default widget('custom.configCollection', {
 	},
 
 	_initEventHandlers: function () {
-		this.element.on('add', this.add.bind(this));
 		this._configCollection.on('update', this._change.bind(this)); //used to render after fetch
 		this._configCollection.on('filterComplete', this._change.bind(this)); //used to render after search
 		this._configCollection.on('change', this._change.bind(this)); //used to render after enabling edit mode
@@ -32,7 +31,7 @@ export default widget('custom.configCollection', {
 		this._configCollectionView.render.call(this._configCollectionView, this._configCollection.models);
 	},
 
-	add: function (evt, newConfig) {
+	add: function (newConfig) {
 		this._configCollection.create(newConfig);
 	}
 });
