@@ -14,16 +14,11 @@
 </head>
 
 <body>
-
-	<!-- Always shows a header, even in smaller screens. -->
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 		<header class="mdl-layout__header">
 			<div class="mdl-layout__header-row">
-				<!-- Title -->
 				<span class="mdl-layout-title">AWD Configuration Console</span>
-				<!-- Add spacer, to align navigation to the right -->
 				<div class="mdl-layout-spacer"></div>
-				<!-- Navigation. We hide it in small screens. -->
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
 					<a class="mdl-navigation__link" href="">Configuration</a>
 					<a class="mdl-navigation__link" href="">Actions</a>
@@ -48,47 +43,47 @@
 						<div id="configuration-collection-container"></div>
 					</div>
 				</div>
-				<div class="add-button-container">
-					<button id="add-button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-						<i class="material-icons">add</i>
-				  	</button>
-				</div>
 			</div>
 		</main>
 	</div>
 
-	<dialog class="mdl-dialog new-config-dialog">
-		<div class="mdl-dialog__content">
-			<div class="mdl-textfield mdl-js-textfield">
-				<input class="mdl-textfield__input key-input" type="text"/>
-				<label class="mdl-textfield__label">Key</label>
+	<div class="new-config">
+		<dialog class="mdl-dialog new-config-dialog">
+			<div class="mdl-dialog__content">
+				<div class="mdl-textfield mdl-js-textfield">
+					<input class="mdl-textfield__input key-input" type="text" />
+					<label class="mdl-textfield__label">Key</label>
+				</div>
+				<div class="mdl-textfield mdl-js-textfield">
+					<input class="mdl-textfield__input name-input" type="text" />
+					<label class="mdl-textfield__label">Name</label>
+				</div>
+				<div class="mdl-textfield mdl-js-textfield">
+					<textarea class="mdl-textfield__input value-input" type="text" rows="3"></textarea>
+					<label class="mdl-textfield__label">Value</label>
+				</div>
+				<div class="mdl-textfield mdl-js-textfield">
+					<textarea class="mdl-textfield__input description-input" type="text" rows="3"></textarea>
+					<label class="mdl-textfield__label">Description</label>
+				</div>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<select class="mdl-textfield__input type-input">
+						<option value="TEXT" selected="selected">TEXT</option>
+						<option value="XML">XML</option>
+						<option value="ENC_PASSWORD">ENC_PASSWORD</option>
+					</select>
+					<label class="mdl-textfield__label">Type</label>
+				</div>
 			</div>
-			<div class="mdl-textfield mdl-js-textfield">
-				<input class="mdl-textfield__input name-input" type="text"/>
-				<label class="mdl-textfield__label">Name</label>
+			<div class="mdl-dialog__actions">
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored create">Create</button>
+				<button class="mdl-button cancel">Cancel</button>
 			</div>
-			<div class="mdl-textfield mdl-js-textfield">
-				<textarea class="mdl-textfield__input value-input" type="text" rows="3"></textarea>
-				<label class="mdl-textfield__label">Value</label>
-			</div>
-			<div class="mdl-textfield mdl-js-textfield">
-				<textarea class="mdl-textfield__input description-input" type="text" rows="3"></textarea>
-				<label class="mdl-textfield__label">Description</label>
-			</div>
-			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				<select class="mdl-textfield__input type-input">
-				  <option value="TEXT" selected="selected">TEXT</option>
-				  <option value="XML">XML</option>
-				  <option value="ENC_PASSWORD">ENC_PASSWORD</option>
-				</select>
-				<label class="mdl-textfield__label">Type</label>
-			</div>
-		</div>
-		<div class="mdl-dialog__actions">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored create" >Create</button>
-			<button class="mdl-button cancel">Cancel</button>
-		</div>
-	</dialog>
+		</dialog>
+		<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored add-button">
+			<i class="material-icons">add</i>
+		</button>
+	</div>
 	<script src="./js/bundle.js"></script>
 </body>
 

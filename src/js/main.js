@@ -8,7 +8,7 @@ $('#search').search();
 
 
 var $dialog = $('.new-config-dialog');
-$('#add-button').on('click', () => {
+$('.add-button').on('click', () => {
 	$dialog[0].showModal();
 });
 

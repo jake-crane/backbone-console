@@ -1,8 +1,9 @@
-.add-button-container {
+.add-button {
 	position: absolute;
 	right: 0;
 	bottom: 0;
 	margin: 10px;
+	z-index: 5;
 }
 
 .spinner {
