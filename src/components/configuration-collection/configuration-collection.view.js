@@ -11,6 +11,11 @@ export default Backbone.View.extend({
 		'click .add-btn': 'add'
 	},
 	template: template(collectionTemplate),
+	reRenderOne: function (config) {
+		const $config = this.$el.find(`#${config.id}`);
+		$config.config('update');
+		componentHandler.upgradeElements($config[0].getElementsByTagName('*'));
+	},
 	render: function (models) {
 		const $template = $(this.template());
 		const $tbody = $template.find('tbody');
@@ -25,7 +30,7 @@ export default Backbone.View.extend({
 		setTimeout(() => {
 			$tbody.find('.configuration-row').addClass('transform');
 		}, 0);
-		componentHandler.upgradeElements(this.el.getElementsByTagName("*"));
+		componentHandler.upgradeElements(this.el.getElementsByTagName('*'));
 		return this;
 	}
 });

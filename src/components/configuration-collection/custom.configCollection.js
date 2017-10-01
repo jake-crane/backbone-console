@@ -22,13 +22,18 @@ export default widget('custom.configCollection', {
 	},
 
 	_initEventHandlers: function () {
-		this._configCollection.on('update', this._change.bind(this)); //used to render after fetch
-		this._configCollection.on('filterComplete', this._change.bind(this)); //used to render after search
-		this._configCollection.on('change', this._change.bind(this)); //used to render after enabling edit mode
+		this._configCollection.on('update', this._renderAll.bind(this)); //used to render after fetch
+		this._configCollection.on('filterComplete', this._renderAll.bind(this)); //used to render after search
+		this._configCollection.on('change', this._renderConfig.bind(this)); //used to render after enabling edit mode
 	},
 
-	_change: function () {
+	_renderAll: function () {
 		this._configCollectionView.render.call(this._configCollectionView, this._configCollection.models);
+	},
+
+	_renderConfig: function (config) {
+		if (config)
+			this._configCollectionView.reRenderOne.call(this._configCollectionView, config);
 	},
 
 	add: function (newConfig, addSuccess) {

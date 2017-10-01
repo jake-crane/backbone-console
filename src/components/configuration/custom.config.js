@@ -16,6 +16,7 @@ export default widget('custom.config', {
 		this._initEventHandlers();
 	},
 	_destroy: function () {
+		this.element.off();
 		this.element.empty();
 	},
 	_initEventHandlers: function () {
@@ -39,5 +40,8 @@ export default widget('custom.config', {
 	},
 	_save: function (evt, updatedConfig) {
 		this.options.config.save(updatedConfig);
+	},
+	update: function () {
+		this._configCollectionView.render(this.options.config);
 	}
 });
