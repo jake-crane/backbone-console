@@ -1,0 +1,11 @@
+.add-btn {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin: 10px;
+	z-index: 5;
+}
+
+.mdl-dialog.new-config-dialog {
+	width: 500px;
+}

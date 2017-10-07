@@ -1,11 +1,3 @@
-.add-button {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	margin: 10px;
-	z-index: 5;
-}
-
 .spinner {
 	position: absolute;
 	z-index: 5;
@@ -16,8 +8,4 @@
 	left: 0;
 	/* bottom: 0; */
 	right: 0;
-}
-
-.mdl-dialog.new-config-dialog {
-	width: 500px;
 }

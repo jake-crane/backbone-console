@@ -1,0 +1,35 @@
+<dialog class="mdl-dialog new-config-dialog">
+	<div class="mdl-dialog__content">
+		<div class="mdl-textfield mdl-js-textfield">
+			<input class="mdl-textfield__input key-input" type="text" />
+			<label class="mdl-textfield__label">Key</label>
+		</div>
+		<div class="mdl-textfield mdl-js-textfield">
+			<input class="mdl-textfield__input name-input" type="text" />
+			<label class="mdl-textfield__label">Name</label>
+		</div>
+		<div class="mdl-textfield mdl-js-textfield">
+			<textarea class="mdl-textfield__input value-input" type="text" rows="3"></textarea>
+			<label class="mdl-textfield__label">Value</label>
+		</div>
+		<div class="mdl-textfield mdl-js-textfield">
+			<textarea class="mdl-textfield__input description-input" type="text" rows="3"></textarea>
+			<label class="mdl-textfield__label">Description</label>
+		</div>
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			<select class="mdl-textfield__input type-input">
+				<option value="TEXT" selected="selected">TEXT</option>
+				<option value="XML">XML</option>
+				<option value="ENC_PASSWORD">ENC_PASSWORD</option>
+			</select>
+			<label class="mdl-textfield__label">Type</label>
+		</div>
+	</div>
+	<div class="mdl-dialog__actions">
+		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored create">Create</button>
+		<button class="mdl-button cancel">Cancel</button>
+	</div>
+</dialog>
+<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored add-btn">
+	<i class="material-icons">add</i>
+</button>

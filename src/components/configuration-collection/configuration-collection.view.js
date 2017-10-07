@@ -7,9 +7,6 @@ import collectionTemplate from './configuration-collection.html';
 import './configuration-collection.css';
 
 export default Backbone.View.extend({
-	events: {
-		'click .add-btn': 'add'
-	},
 	template: template(collectionTemplate),
 	reRenderOne: function (config) {
 		const $config = this.$el.find(`#${config.id}`);
