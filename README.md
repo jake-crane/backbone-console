@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jake-crane/mvp-console.svg?branch=master)](https://travis-ci.org/jake-crane/mvp-console)
+
 This is a MVP POC project to replace the configuration console.
 
 run "npm install" to download dependencies.
