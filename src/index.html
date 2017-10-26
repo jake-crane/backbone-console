@@ -14,21 +14,18 @@
 </head>
 
 <body>
-
-	<!-- Always shows a header, even in smaller screens. -->
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 		<header class="mdl-layout__header">
 			<div class="mdl-layout__header-row">
-				<!-- Title -->
 				<span class="mdl-layout-title">AWD Configuration Console</span>
-				<!-- Add spacer, to align navigation to the right -->
 				<div class="mdl-layout-spacer"></div>
-				<!-- Navigation. We hide it in small screens. -->
+				<div id="search"></div>
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
-					<a class="mdl-navigation__link" href="">Configuration</a>
-					<a class="mdl-navigation__link" href="">Actions</a>
-					<a class="mdl-navigation__link" href="">Metrics</a>
-					<a class="mdl-navigation__link" href="">Audit</a>
+					<a class="mdl-navigation__link" href="#">Configuration</a>
+					<a class="mdl-navigation__link coms-link" href="">Communications</a>
+					<!-- <a class="mdl-navigation__link" href="#">Actions</a>
+					<a class="mdl-navigation__link" href="#">Metrics</a>
+					<a class="mdl-navigation__link" href="#">Audit</a> -->
 				</nav>
 			</div>
 		</header>
@@ -36,63 +33,26 @@
 			<span class="mdl-layout-title">AWD Configuration Console</span>
 			<nav class="mdl-navigation">
 				<a class="mdl-navigation__link" href="#">Configurations</a>
-				<a class="mdl-navigation__link" href="#">Actions</a>
+				<a class="mdl-navigation__link coms-link" href="#">Communications</a>
+				<!-- <a class="mdl-navigation__link" href="#">Actions</a>
 				<a class="mdl-navigation__link" href="#">Metrics</a>
-				<a class="mdl-navigation__link" href="#">Audit</a>
+				<a class="mdl-navigation__link" href="#">Audit</a> -->
 			</nav>
 		</div>
 		<main class="mdl-layout__content">
 			<div class="page-content">
 				<div class="mdl-grid">
-					<div class="mdl-cell mdl-cell--12-col">
+					<div class="mdl-cell mdl-cell--12-col page config-page">
 						<div id="configuration-collection-container"></div>
+						<div id="new-config"></div>
 					</div>
-				</div>
-				<div class="add-button-container">
-					<button id="add-button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-						<i class="material-icons">add</i>
-				  	</button>
+					<div class="mdl-cell mdl-cell--12-col page coms-page">
+					</div>
 				</div>
 			</div>
 		</main>
 	</div>
 
-	<dialog class="mdl-dialog new-config-dialog">
-		<div class="mdl-dialog__content">
-			<div class="mdl-textfield mdl-js-textfield">
-				<input class="mdl-textfield__input" type="text" id="key-input">
-				<label class="mdl-textfield__label" for="key-input">Key</label>
-			</div>
-			<div class="mdl-textfield mdl-js-textfield">
-				<input class="mdl-textfield__input" type="text" id="name-input">
-				<label class="mdl-textfield__label" for="name-input">Name</label>
-			</div>
-			<div class="mdl-textfield mdl-js-textfield">
-				<textarea class="mdl-textfield__input" type="text" rows="3" id="value-input"></textarea>
-				<label class="mdl-textfield__label" for="value-input">Value</label>
-			</div>
-			<div class="mdl-textfield mdl-js-textfield">
-				<textarea class="mdl-textfield__input" type="text" rows="3" id="description-input"></textarea>
-				<label class="mdl-textfield__label" for="description-input">Value</label>
-			</div>
-			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
-				<input class="mdl-textfield__input" type="text" id="type-input" value="TEXT" readonly tabIndex="-1">
-				<label for="type-input">
-						<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-					</label>
-				<label for="type-input" class="mdl-textfield__label">Type</label>
-				<ul for="type-input" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-					<li class="mdl-menu__item" data-val="DE">TEXT</li>
-					<li class="mdl-menu__item" data-val="BY">XML</li>
-					<li class="mdl-menu__item" data-val="RU">ENC_PASSWORD</li>
-				</ul>
-			</div>
-		</div>
-		<div class="mdl-dialog__actions">
-			<button type="button" class="mdl-button">Close</button>
-			<button type="button" class="mdl-button" > action</button>
-		</div>
-	</dialog>
 	<script src="./js/bundle.js"></script>
 </body>
 

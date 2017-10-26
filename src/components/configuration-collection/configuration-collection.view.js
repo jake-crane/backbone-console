@@ -7,19 +7,11 @@ import collectionTemplate from './configuration-collection.html';
 import './configuration-collection.css';
 
 export default Backbone.View.extend({
-	events: {
-		'click .add-btn': 'add'
-	},
 	template: template(collectionTemplate),
-	add: function () {
-		const newConfiguration = {
-			key: this.$el.find('.key').val(),
-			name: this.$el.find('.name').val(),
-			value: this.$el.find('.value').val(),
-			description: this.$el.find('.description').val(),
-			type: this.$el.find('.type').val()
-		};
-		this.$el.trigger('add', newConfiguration);
+	reRenderOne: function (config) {
+		const $config = this.$el.find(`#${config.id}`);
+		$config.config('update');
+		componentHandler.upgradeElements($config[0].getElementsByTagName('*'));
 	},
 	render: function (models) {
 		const $template = $(this.template());
@@ -35,7 +27,7 @@ export default Backbone.View.extend({
 		setTimeout(() => {
 			$tbody.find('.configuration-row').addClass('transform');
 		}, 0);
-		componentHandler.upgradeElements(this.el.getElementsByTagName("*"));
+		componentHandler.upgradeElements(this.el.getElementsByTagName('*'));
 		return this;
 	}
 });

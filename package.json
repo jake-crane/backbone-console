@@ -20,7 +20,7 @@
     "babel-preset-env": "^1.6.0",
     "chai": "^4.1.2",
     "css-loader": "^0.28.7",
-    "eslint": "^4.7.0",
+    "eslint": "^4.8.0",
     "eslint-plugin-backbone": "^2.1.1",
     "eslint-plugin-jquery": "^1.2.1",
     "eslint-plugin-lodash": "^2.4.5",
@@ -28,7 +28,7 @@
     "mocha": "^3.5.3",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.8.2",
+    "webpack-dev-server": "^2.9.1",
     "webpack-module-hot-accept": "^1.0.5"
   },
   "dependencies": {
