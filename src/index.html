@@ -21,8 +21,16 @@
 				<div class="mdl-layout-spacer"></div>
 				<div id="search"></div>
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
-					<a class="mdl-navigation__link config-link" href="#">Configuration</a>
-					<a class="mdl-navigation__link coms-link" href="#">Communications</a>
+					<ul>
+						<li class="parent-menu">
+							<a class="mdl-navigation__link config-link" href="#">Configuration</a>
+							<ul class="sub-menu">
+								<li>
+									<a class="mdl-navigation__link coms-link" href="#">Communications</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
 					<!-- <a class="mdl-navigation__link" href="#">Actions</a>
 					<a class="mdl-navigation__link" href="#">Metrics</a>
 					<a class="mdl-navigation__link" href="#">Audit</a> -->
