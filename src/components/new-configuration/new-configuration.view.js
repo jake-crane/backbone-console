@@ -1,6 +1,5 @@
 import template from 'lodash/template';
 import Backbone from 'backbone';
-import $ from 'jquery';
 import newConfigTemplate from './new-configuration.html';
 import './new-configuration.css';
 
