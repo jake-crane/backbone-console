@@ -15,28 +15,32 @@
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .parent-menu {
-    position: relative;
-  }
-
-  ul.sub-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
+	list-style-type: none;
 	padding: 0;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
-  }
+}
 
-  .parent-menu:hover > ul.sub-menu {
-		display: block;
-  }
+.parent-menu {
+	position: relative;
+}
 
-  .sub-menu a.mdl-navigation__link {
+ul.sub-menu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	padding: 0;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+.parent-menu:hover>ul.sub-menu {
+	display: block;
+}
+
+.sub-menu a.mdl-navigation__link {
 	background-color: white;
 	color: black;
+}
+
+.padding15 {
+	padding: 15px;
 }

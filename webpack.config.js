@@ -19,11 +19,13 @@ module.exports = {
 	] : [
 		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+		new webpack.optimize.UglifyJsPlugin({
+			mangle: false,
+			sourcemap: false
+		}),
 	],
 	module: {
-		rules: [
-			{
+		rules: [{
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
 				use: {
@@ -60,7 +62,8 @@ module.exports = {
 		contentBase: path.join(__dirname, 'src'),
 		port: 9000,
 		proxy: {
-			'/configurations': 'http://localhost:8000'
+			'/configurations': 'http://localhost:8000',
+			'/communications': 'http://localhost:8000'
 		},
 		compress: true,
 		open: true,
