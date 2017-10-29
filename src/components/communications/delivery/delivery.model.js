@@ -10,15 +10,15 @@ export default Backbone.Model.extend({
 		};
 	},
 	initialize: function () {
-		//TODO look into doing this using backbone
-		fetch(this.urlRoot)
-			.then(response => response.text())
-			.then(xml => this._parseXML(xml))
-			.then(delivery => this.set(delivery));
+		this.fetch();
 	},
 	urlRoot: './communications/deliverychannels',
-	_parseXML: function (xmlString) {
-		const xmlDoc = new DOMParser().parseFromString(xmlString, 'text/xml');
+	fetch: function (options) {
+		options = options || {};
+		options.dataType = 'xml';
+		return Backbone.Model.prototype.fetch.call(this, options);
+	},
+	parse: function (xmlDoc) {
 		const hostNode = xmlDoc.querySelector('smtpHostName');
 		const portNode = xmlDoc.querySelector('smtpHostPort');
 		const userNode = xmlDoc.querySelector('user');

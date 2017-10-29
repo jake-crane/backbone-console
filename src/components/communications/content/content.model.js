@@ -14,15 +14,15 @@ export default Backbone.Model.extend({
 		};
 	},
 	initialize: function () {
-		//TODO look into doing this using backbone
-		fetch(this.urlRoot)
-			.then(response => response.text())
-			.then(xml => this._parseXML(xml))
-			.then(delivery => this.set(delivery));
+		this.fetch();
 	},
 	urlRoot: './communications/contentmanagement',
-	_parseXML: function (xmlString) {
-		const xmlDoc = new DOMParser().parseFromString(xmlString, 'text/xml');
+	fetch: function (options) {
+		options = options || {};
+		options.dataType = 'xml';
+		return Backbone.Model.prototype.fetch.call(this, options);
+	},
+	parse: function (xmlDoc) {
 		const deviceNode = xmlDoc.querySelector('device');
 		const imageUrlNode = xmlDoc.querySelector('imageUrl');
 		const xfRenderingServerNode = xmlDoc.querySelector('xfRenderingServer');
