@@ -4,5 +4,7 @@
 }
 
 .coms-save-button {
-	float: right;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
 }
