@@ -42,7 +42,8 @@
 			1,
 			{
 				"ignoreMethods": [
-					"find"
+					"find",
+					"replace"
 				]
 			}
 		]

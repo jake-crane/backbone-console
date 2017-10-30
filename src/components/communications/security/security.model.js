@@ -1,6 +1,6 @@
-import Backbone from 'backbone';
+import CommunicationsBaseModel from '../CommunicationsBaseModel';
 
-export default Backbone.Model.extend({
+export default CommunicationsBaseModel.extend({
 	defaults: function () {
 		return {
 			authKey: '',
@@ -10,15 +10,7 @@ export default Backbone.Model.extend({
 			authServletTolerance: ''
 		};
 	},
-	initialize: function () {
-		this.fetch();
-	},
 	urlRoot: './communications/systemsecurity',
-	fetch: function (options) {
-		options = options || {};
-		options.dataType = 'xml';
-		return Backbone.Model.prototype.fetch.call(this, options);
-	},
 	parse: function (xmlDoc) {
 		const authKeyNode = xmlDoc.querySelector('authKey');
 		const authFilterToleranceNode = xmlDoc.querySelector('authFilterTolerance');
@@ -32,5 +24,16 @@ export default Backbone.Model.extend({
 			authRequestTolerance: authRequestToleranceNode && authRequestToleranceNode.textContent,
 			authServletTolerance: authServletToleranceNode && authServletToleranceNode.textContent
 		};
+	},
+	toXML: function () {
+		return `
+			<systemSecuritySettings>
+				<authKey>${this.get('authKey')}</authKey>
+				<authFilterTolerance>${this.get('authFilterTolerance')}</authFilterTolerance>
+				<authRedirectTolerance>${this.get('authRedirectTolerance')}</authRedirectTolerance>
+				<authRequestTolerance>${this.get('authRequestTolerance')}</authRequestTolerance>
+				<authServletTolerance>${this.get('authServletTolerance')}</authServletTolerance>
+			</systemSecuritySettings>
+		`;
 	}
 });

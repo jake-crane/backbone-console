@@ -1,6 +1,6 @@
-import Backbone from 'backbone';
+import CommunicationsBaseModel from '../CommunicationsBaseModel';
 
-export default Backbone.Model.extend({
+export default CommunicationsBaseModel.extend({
 	defaults: function () {
 		return {
 			address: '',
@@ -10,15 +10,7 @@ export default Backbone.Model.extend({
 			password: ''
 		};
 	},
-	initialize: function () {
-		this.fetch();
-	},
 	urlRoot: './communications/aftsettings',
-	fetch: function (options) {
-		options = options || {};
-		options.dataType = 'xml';
-		return Backbone.Model.prototype.fetch.call(this, options);
-	},
 	parse: function (xmlDoc) {
 		const addressNode = xmlDoc.querySelector('address');
 		const portNode = xmlDoc.querySelector('port');
@@ -32,5 +24,16 @@ export default Backbone.Model.extend({
 			userId: userIdNode && userIdNode.textContent,
 			password: passwordNode && passwordNode.textContent
 		};
+	},
+	toXML: function () {
+		return `
+			<aftSettings>
+				<address>${this.get('address')}</address>
+				<port>${this.get('port')}</port>
+				<filePath>${this.get('filePath')}</filePath>
+				<userId>${this.get('userId')}</userId>
+				<password>${this.get('password')}</password>
+			</aftSettings>
+		`;
 	}
 });

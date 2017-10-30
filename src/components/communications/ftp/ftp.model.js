@@ -1,6 +1,6 @@
-import Backbone from 'backbone';
+import CommunicationsBaseModel from '../CommunicationsBaseModel';
 
-export default Backbone.Model.extend({
+export default CommunicationsBaseModel.extend({
 	defaults: function () {
 		return {
 			id: '',
@@ -11,15 +11,7 @@ export default Backbone.Model.extend({
 			ftppath: ''
 		};
 	},
-	initialize: function () {
-		this.fetch();
-	},
 	urlRoot: './communications/ftpsettings',
-	fetch: function (options) {
-		options = options || {};
-		options.dataType = 'xml';
-		return Backbone.Model.prototype.fetch.call(this, options);
-	},
 	parse: function (xmlDoc) {
 		const idNode = xmlDoc.querySelector('id');
 		const addressNode = xmlDoc.querySelector('address');
@@ -35,5 +27,17 @@ export default Backbone.Model.extend({
 			password: passwordNode && passwordNode.textContent,
 			ftppath: ftppathNode && ftppathNode.textContent
 		};
+	},
+	toXML: function () {
+		return `
+			<ftpSettings>
+				<id>${this.get('id')}</id>
+				<address>${this.get('address')}</address>
+				<port>${this.get('port')}</port>
+				<user>${this.get('user')}</user>
+				<password>${this.get('password')}</password>
+				<ftppath>${this.get('ftppath')}</ftppath>
+			</ftpSettings>
+		`;
 	}
 });

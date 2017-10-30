@@ -1,6 +1,6 @@
-import Backbone from 'backbone';
+import CommunicationsBaseModel from '../CommunicationsBaseModel';
 
-export default Backbone.Model.extend({
+export default CommunicationsBaseModel.extend({
 	defaults: function () {
 		return {
 			smtpHost: '',
@@ -9,15 +9,7 @@ export default Backbone.Model.extend({
 			smtpPassword: ''
 		};
 	},
-	initialize: function () {
-		this.fetch();
-	},
 	urlRoot: './communications/deliverychannels',
-	fetch: function (options) {
-		options = options || {};
-		options.dataType = 'xml';
-		return Backbone.Model.prototype.fetch.call(this, options);
-	},
 	parse: function (xmlDoc) {
 		const hostNode = xmlDoc.querySelector('smtpHostName');
 		const portNode = xmlDoc.querySelector('smtpHostPort');
@@ -29,5 +21,15 @@ export default Backbone.Model.extend({
 			smtpUser: userNode && userNode.textContent,
 			smtpPassword: passwordNode && passwordNode.textContent
 		};
+	},
+	toXML: function () {
+		return `
+			<deliveryChannelSettings>
+				<smtpHostName>${this.get('smtpHost')}</smtpHostName>
+				<smtpHostPort>${this.get('smtpPort')}</smtpHostPort>
+				<user>${this.get('smtpUser')}</user>
+				<password>${this.get('smtpPassword')}</password>
+			</deliveryChannelSettings>
+		`;
 	}
 });

@@ -1,6 +1,6 @@
-import Backbone from 'backbone';
+import CommunicationsBaseModel from '../CommunicationsBaseModel';
 
-export default Backbone.Model.extend({
+export default CommunicationsBaseModel.extend({
 	defaults: function () {
 		return {
 			device: '',
@@ -13,15 +13,7 @@ export default Backbone.Model.extend({
 			minImagePixels: ''
 		};
 	},
-	initialize: function () {
-		this.fetch();
-	},
 	urlRoot: './communications/contentmanagement',
-	fetch: function (options) {
-		options = options || {};
-		options.dataType = 'xml';
-		return Backbone.Model.prototype.fetch.call(this, options);
-	},
 	parse: function (xmlDoc) {
 		const deviceNode = xmlDoc.querySelector('device');
 		const imageUrlNode = xmlDoc.querySelector('imageUrl');
@@ -41,5 +33,19 @@ export default Backbone.Model.extend({
 			maxImagePixels: maxImagePixelsNode && maxImagePixelsNode.textContent,
 			minImagePixels: minImagePixelsNode && minImagePixelsNode.textContent
 		};
+	},
+	toXML: function () {
+		return `
+			<contentManagementSettings>
+				<device>${this.get('device')}</device>
+				<imageUrl>${this.get('imageUrl')}</imageUrl>
+				<xfRenderingServer>${this.get('xfRenderingServer')}</xfRenderingServer>
+				<maxFileUploadSize>${this.get('maxFileUploadSize')}</maxFileUploadSize>
+				<maxImageDpi>${this.get('maxImageDpi')}</maxImageDpi>
+				<minImageDpi>${this.get('minImageDpi')}</minImageDpi>
+				<maxImagePixels>${this.get('maxImagePixels')}</maxImagePixels>
+				<minImagePixels>${this.get('minImagePixels')}</minImagePixels>
+			</contentManagementSettings>
+		`;
 	}
 });

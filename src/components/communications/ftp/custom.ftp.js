@@ -6,6 +6,7 @@ export default widget('custom.ftp', {
 	_create: function () {
 		this._ftpModel = new FtpModel();
 		this._ftpModel.on('change', this._onChange.bind(this));
+		this.element.on('save', this._save.bind(this));
 
 		this._ftpView = new FtpView({
 			el: this.element
@@ -14,6 +15,9 @@ export default widget('custom.ftp', {
 	},
 	_onChange: function (data) {
 		this._ftpView.render(data.attributes);
+	},
+	_save: function (evt, updatedData) {
+		this._ftpModel.save(updatedData);
 	},
 	_destroy: function () {
 		this.element.off();

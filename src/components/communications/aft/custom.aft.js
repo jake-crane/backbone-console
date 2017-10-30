@@ -6,6 +6,7 @@ export default widget('custom.aft', {
 	_create: function () {
 		this._aftModel = new AftModel();
 		this._aftModel.on('change', this._onChange.bind(this));
+		this.element.on('save', this._save.bind(this));
 
 		this._aftView = new AftView({
 			el: this.element
@@ -14,6 +15,9 @@ export default widget('custom.aft', {
 	},
 	_onChange: function (data) {
 		this._aftView.render(data.attributes);
+	},
+	_save: function (evt, updatedData) {
+		this._aftModel.save(updatedData);
 	},
 	_destroy: function () {
 		this.element.off();

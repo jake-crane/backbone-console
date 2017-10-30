@@ -1,6 +1,6 @@
-import Backbone from 'backbone';
+import CommunicationsBaseModel from '../CommunicationsBaseModel';
 
-export default Backbone.Model.extend({
+export default CommunicationsBaseModel.extend({
 	defaults: function () {
 		return {
 			id: '',
@@ -9,15 +9,7 @@ export default Backbone.Model.extend({
 			billingId: ''
 		};
 	},
-	initialize: function () {
-		this.fetch();
-	},
 	urlRoot: './communications/clients',
-	fetch: function (options) {
-		options = options || {};
-		options.dataType = 'xml';
-		return Backbone.Model.prototype.fetch.call(this, options);
-	},
 	parse: function (xmlDoc) {
 		const idNode = xmlDoc.querySelector('id');
 		const nameNode = xmlDoc.querySelector('name');
@@ -29,5 +21,15 @@ export default Backbone.Model.extend({
 			thirdParty: thirdPartyNode && thirdPartyNode.textContent,
 			billingId: billingIdNode && billingIdNode.textContent,
 		};
+	},
+	toXML: function () {
+		return `
+			<clientDetail href="client/${this.get('id')}">
+				<id>${this.get('id')}</id>
+				<name>${this.get('name')}</name>
+				<thirdParty>${this.get('thirdParty')}</thirdParty>
+				<billingId>${this.get('billingId')}</billingId>
+			</clientDetail>
+		`;
 	}
 });
