@@ -26,35 +26,35 @@ module.exports = {
 	],
 	module: {
 		rules: [{
-				test: /\.js$/,
-				exclude: /(node_modules|bower_components)/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						plugins: [
-							require('babel-plugin-check-es2015-constants'),
-							require('babel-plugin-transform-es2015-arrow-functions'),
-							require('babel-plugin-transform-es2015-classes')
-						]
-					}
+			test: /\.js$/,
+			exclude: /(node_modules|bower_components)/,
+			use: {
+				loader: 'babel-loader',
+				options: {
+					plugins: [
+						require('babel-plugin-check-es2015-constants'),
+						require('babel-plugin-transform-es2015-arrow-functions'),
+						require('babel-plugin-transform-es2015-classes')
+					]
 				}
-			},
-			{
-				test: /\.css$/,
-				use: ['style-loader', 'css-loader']
-			},
-			{
-				test: /\.html$/,
-				loader: 'html-loader'
-			},
-			{
-				test: /main\.js/,
-				exclude: /node_modules/,
-				loaders: [
-					'babel-loader',
-					'webpack-module-hot-accept'
-				]
 			}
+		},
+		{
+			test: /\.css$/,
+			use: ['style-loader', 'css-loader']
+		},
+		{
+			test: /\.html$/,
+			loader: 'html-loader'
+		},
+		{
+			test: /main\.js/,
+			exclude: /node_modules/,
+			loaders: [
+				'babel-loader',
+				'webpack-module-hot-accept'
+			]
+		}
 		]
 	},
 	devServer: {

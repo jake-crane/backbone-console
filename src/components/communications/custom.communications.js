@@ -1,6 +1,5 @@
 import widget from 'jquery-ui/ui/widget';
 import CommunicationsView from './communications.view';
-import DeliveryModel from './delivery/delivery.model';
 
 export default widget('custom.communications', {
 	options: {
