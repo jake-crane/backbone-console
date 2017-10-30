@@ -11,4 +11,3 @@ $('#new-config').newConfiguration({
 });
 $('#search').search();
 
-$('#communications').communications();
