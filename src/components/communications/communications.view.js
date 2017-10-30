@@ -25,22 +25,12 @@ export default Backbone.View.extend({
 		this.$el.find('#aft-settings').aft();
 		this.$el.find('#ftp-settings').ftp();
 		const cards = this.el.querySelectorAll('.card');
-		const initialDelay = 500;
-		let delay = 500 * cards.length;
 		//eslint-disable-next-line lodash/prefer-lodash-method
-		cards.forEach(function(card) {
-			// card.style.opacity = 0;
-			const animation = card.animate([
-				{ /* opacity: 0, */ transform: 'scale(0) translateY(-500%)' },
-				{ /* opacity: 1,  */transform: 'scale(1) translateY(0)' }
-			], {
-				delay: delay,
-				duration: 2000
-			});
-			animation.onfinish = function() {
-				card.style.opacity = 1;
-			};
-			delay -= 100;
+		cards.forEach(function (card) {
+			card.animate([
+				{ transform: 'scale(0) translateY(-500%)' },
+				{ transform: 'scale(1) translateY(0)' }
+			], 2000);
 		}, this);
 		return this;
 	}

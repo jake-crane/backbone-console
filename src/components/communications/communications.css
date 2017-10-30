@@ -23,6 +23,7 @@
 	max-width: 800px;
 	margin-bottom: 30px;
 	border-top: 1px solid rgba(0, 0, 0, .1);
+	will-change: transform;
 }
 
 .communications-view .mdl-textfield {
