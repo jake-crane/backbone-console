@@ -10,10 +10,16 @@
 	margin: 2px 0 2px 0;
 }
 
+.coms-cancel-button {
+	position: absolute;
+	bottom: 15px;
+	right: 90px;
+}
+
 .coms-save-button {
 	position: absolute;
-	bottom: 5px;
-	right: 5px;
+	bottom: 15px;
+	right: 15px;
 }
 
 .communications-view .card {
@@ -24,6 +30,10 @@
 	margin-bottom: 30px;
 	border-top: 1px solid rgba(0, 0, 0, .1);
 	will-change: transform;
+}
+
+.communications-view form {
+	padding-bottom: 50px;
 }
 
 .communications-view .mdl-textfield {
