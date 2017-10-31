@@ -14,42 +14,23 @@
 </head>
 
 <body>
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 		<header class="mdl-layout__header">
 			<div class="mdl-layout__header-row">
 				<span class="mdl-layout-title">AWD Configuration Console</span>
 				<div class="mdl-layout-spacer"></div>
 				<div id="search"></div>
-				<nav class="mdl-navigation mdl-layout--large-screen-only">
-					<ul>
-						<li class="parent-menu">
-							<a class="mdl-navigation__link config-link" href="#">
-								Configuration
-								<i class="material-icons">keyboard_arrow_down</i>
-							</a>
-							<ul class="sub-menu">
-								<li>
-									<a class="mdl-navigation__link coms-link" href="#">Communications</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
+			</div>
+		</header>
+		<div class="mdl-layout__drawer">
+				<nav class="mdl-navigation">
+					<a class="mdl-navigation__link config-link" href="#">Configurations</a>
+					<a class="mdl-navigation__link coms-link" href="#">Communications</a>
 					<!-- <a class="mdl-navigation__link" href="#">Actions</a>
 					<a class="mdl-navigation__link" href="#">Metrics</a>
 					<a class="mdl-navigation__link" href="#">Audit</a> -->
 				</nav>
 			</div>
-		</header>
-		<div class="mdl-layout__drawer">
-			<span class="mdl-layout-title">AWD Configuration Console</span>
-			<nav class="mdl-navigation">
-				<a class="mdl-navigation__link" href="#">Configurations</a>
-				<a class="mdl-navigation__link coms-link" href="#">Communications</a>
-				<!-- <a class="mdl-navigation__link" href="#">Actions</a>
-				<a class="mdl-navigation__link" href="#">Metrics</a>
-				<a class="mdl-navigation__link" href="#">Audit</a> -->
-			</nav>
-		</div>
 		<main class="mdl-layout__content">
 			<div class="page-content">
 				<div class="mdl-grid">
