@@ -46,6 +46,12 @@
 	font-weight: 600;
 }
 
-.sidenav li:hover {
+.sidenav li[disabled=disabled] a {
+	color: rgb(220, 220, 220);
+	pointer-events: none;
+	cursor: default;
+}
+
+.sidenav not(li[disabled) li:hover {
 	background-color: rgb(235, 235, 235);
 }
