@@ -9,12 +9,13 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-red.min.css" />
 	<link rel="stylesheet" href="./css/card.css" />
+	<link rel="stylesheet" href="./css/sidenav.css" />
 	<link rel="stylesheet" href="./css/style.css" />
 	<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 
 <body>
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 		<header class="mdl-layout__header">
 			<div class="mdl-layout__header-row">
 				<span class="mdl-layout-title">AWD Configuration Console</span>
@@ -22,15 +23,50 @@
 				<div id="search"></div>
 			</div>
 		</header>
-		<div class="mdl-layout__drawer">
-				<nav class="mdl-navigation">
-					<a class="mdl-navigation__link config-link" href="#">Configurations</a>
-					<a class="mdl-navigation__link coms-link" href="#">Communications</a>
-					<!-- <a class="mdl-navigation__link" href="#">Actions</a>
-					<a class="mdl-navigation__link" href="#">Metrics</a>
-					<a class="mdl-navigation__link" href="#">Audit</a> -->
-				</nav>
-			</div>
+		<div class="sidenav">
+			<span class="sidenav-header">Configuration</span>
+			<ul>
+				<li class="selected">
+					<a class="nav-link config-link" href="#">Application</a>
+				</li>
+				<li>
+					<a class="nav-link" href="#" disabled="disabled">Capture</a>
+				</li>
+				<li>
+					<a class="nav-link coms-link" href="#">Communications</a>
+				</li>
+			</ul>
+			<span class="sidenav-header">Actions</span>
+			<ul>
+				<li>
+					<a class="nav-link" href="#">Loggers</a>
+				</li>
+				<li>
+					<a class="nav-link" href="#" disabled="disabled">Clear Cache</a>
+				</li>
+				<li>
+					<a class="nav-link" href="#">View File</a>
+				</li>
+				<li>
+					<a class="nav-link" href="#">Batch Processing</a>
+				</li>
+				<li>
+					<a class="nav-link" href="#">About</a>
+				</li>
+			</ul>
+			<span class="sidenav-header">Metrics</span>
+			<ul>
+				<li>
+					<a class="nav-link" href="#">Metrics</a>
+				</li>
+			</ul>
+			<span class="sidenav-header">Audit</span>
+			<ul>
+				<li>
+					<a class="nav-link" href="#">Audit Report</a>
+				</li>
+			</ul>
+		</div>
 		<main class="mdl-layout__content">
 			<div class="page-content">
 				<div class="mdl-grid">
