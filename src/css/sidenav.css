@@ -1,0 +1,57 @@
+.sidenav {
+	margin-top: 64px;
+	padding-top: 12px;
+	height: calc(100% - 64px);
+	width: 200px;
+	background-color: rgb(250, 250, 250);
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+	position: fixed!important;
+	z-index: 1;
+	overflow: auto;
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+.sidenav .sidenav-header {
+    font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	color: rgba(17, 17, 17, 0.6);
+	font-weight: 500;
+	padding: 0 15px 0 15px;
+}
+
+.sidenav ul {
+	-webkit-margin-before: 0;
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.sidenav li {
+	text-align: center;
+	font-size: 14px;
+	font-weight: 400;
+	height: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.sidenav li a {
+	text-decoration: none;
+	color: rgb(17, 17, 17);
+	font-weight: initial;
+}
+
+.sidenav li.selected a {
+	font-weight: 600;
+}
+
+.sidenav li[disabled=disabled] a {
+	color: rgb(220, 220, 220);
+	pointer-events: none;
+	cursor: default;
+}
+
+.sidenav not(li[disabled) li:hover {
+	background-color: rgb(235, 235, 235);
+}

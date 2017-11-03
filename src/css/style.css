@@ -1,3 +1,6 @@
+ body {
+	 font-family: Roboto, Arial, sans-serif;
+ }
 .spinner {
 	position: absolute;
 	z-index: 5;
@@ -36,11 +39,10 @@ ul.sub-menu {
 	display: block;
 }
 
-.sub-menu a.mdl-navigation__link {
-	background-color: white;
-	color: black;
-}
-
 .padding15 {
 	padding: 15px;
+}
+
+.mdl-layout__content {
+	margin-left: 200px;
 }
