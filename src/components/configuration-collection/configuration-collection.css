@@ -17,5 +17,5 @@
 }
 
 .mdl-data-table .pretransform.transform {
-    transform: translateX(0);
+    transform: initial;
 }
