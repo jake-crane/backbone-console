@@ -52,6 +52,10 @@
 	cursor: default;
 }
 
-.sidenav not(li[disabled) li:hover {
+.sidenav li:hover {
 	background-color: rgb(235, 235, 235);
+}
+
+.sidenav li[disabled=disabled]:hover {
+	background-color: initial;
 }
