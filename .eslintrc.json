@@ -38,15 +38,7 @@
 				"argsIgnorePattern": "^e$|^evt$"
 			}
 		],
-		"lodash/prefer-lodash-method": [
-			1,
-			{
-				"ignoreMethods": [
-					"find",
-					"replace"
-				]
-			}
-		]
+		"lodash/prefer-lodash-method": 0
 	},
 	"globals": {
 		"componentHandler": false

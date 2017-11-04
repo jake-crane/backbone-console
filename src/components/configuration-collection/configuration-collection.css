@@ -11,11 +11,11 @@
       max-width: 68px;
 }
 
-.mdl-data-table tbody tr {
-    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.mdl-data-table .pretransform {
     transform: translateX(-110%);
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.configuration-row.transform {
+.mdl-data-table .pretransform.transform {
     transform: translateX(0);
 }

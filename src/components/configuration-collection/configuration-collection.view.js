@@ -13,20 +13,28 @@ export default Backbone.View.extend({
 		$config.config('update');
 		componentHandler.upgradeElements($config[0].getElementsByTagName('*'));
 	},
-	render: function (models) {
+	render: function (models, animation) {
 		const $template = $(this.template());
 		const $tbody = $template.find('tbody');
-		// There are better ways to do this transition. I was just experimenting with things.
-		let time = 2000;
-		forEach(models, (config) => {
-			const $row = $(`<tr class="configuration-row" style="transition: transform ${time}ms;"></tr>`).config({ $tbody, config });
-			$tbody.append($row);
-			time += 400;
-		});
-		this.$el.html($template);
-		setTimeout(() => {
-			$tbody.find('.configuration-row').addClass('transform');
-		}, 0);
+		if (animation) {
+			// There are better ways to do this transition. I was just experimenting with things.
+			let time = 2000;
+			forEach(models, (config) => {
+				const $row = $(`<tr class="configuration-row pretransform" style="transition: transform ${time}ms;"></tr>`).config({ $tbody, config });
+				$tbody.append($row);
+				time += 400;
+			});
+			this.$el.html($template);
+			setTimeout(() => {
+				$tbody.find('.configuration-row').addClass('transform');
+			}, 0);
+		} else {
+			models.forEach( (config) => {
+				const $row = $('<tr class="configuration-row"></tr>').config({ $tbody, config });
+				$tbody.append($row);
+			});
+			this.$el.html($template);
+		}
 		componentHandler.upgradeElements(this.el.getElementsByTagName('*'));
 		return this;
 	}
