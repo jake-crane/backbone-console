@@ -59,3 +59,7 @@
 .sidenav li[disabled=disabled]:hover {
 	background-color: initial;
 }
+
+.sidenav-closed .sidenav {
+	display: none;
+}

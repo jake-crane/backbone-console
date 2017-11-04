@@ -43,6 +43,6 @@ ul.sub-menu {
 	padding: 15px;
 }
 
-.mdl-layout__content {
+.sidenav-open .main-content {
 	margin-left: 200px;
 }
