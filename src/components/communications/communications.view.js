@@ -28,7 +28,7 @@ export default Backbone.View.extend({
 		//eslint-disable-next-line lodash/prefer-lodash-method
 		cards.forEach(function (card) {
 			card.animate([
-				{ transform: 'scale(0) translateY(-500%)' },
+				{ transform: 'scale(0) translateY(-50%)' },
 				{ transform: 'scale(1) translateY(0)' }
 			],
 			{duration: 2000, easing: 'cubic-bezier(0, 0, 0.58, 1)'});
