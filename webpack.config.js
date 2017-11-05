@@ -64,6 +64,7 @@ module.exports = {
 		proxy: {
 			'/configurations': 'http://localhost:8000',
 			'/communications': 'http://localhost:8000'
+			//'/communications': 'http://linjborasp8:80/awdServer/awd/config/services/v1/console'
 		},
 		compress: true,
 		open: true,
