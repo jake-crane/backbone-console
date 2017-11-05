@@ -6,22 +6,44 @@ const $configpage = $('.config-page');
 const $configLinks = $('.config-link');
 const $comsLinks = $('.coms-link');
 
+let applicationLoaded = false;
 let comsLoaded = false;
 
-$configLinks.on('click', (e) => {
-	$pages.addClass('no-display');
+function navigateToApplication() {
+	if (!applicationLoaded) {
+		const $configCollection = $('#configuration-collection-container').configCollection();
+		$('#new-config').newConfiguration({
+			$configCollection
+		});
+		applicationLoaded = true;
+	}
 	$comsLinks.parent().removeClass('selected');
 	$configpage.removeClass('no-display');
 	$configLinks.parent().addClass('selected');
-});
+}
 
-$comsLinks.on('click', (e) => {
+function navigateToCommunications() {
 	if (!comsLoaded) {
 		$('#communications').communications();
 		comsLoaded = true;
 	}
-	$pages.addClass('no-display');
-	$configLinks.parent().removeClass('selected');
-	$comspage.removeClass('no-display');
 	$comsLinks.parent().addClass('selected');
-});
+	$comspage.removeClass('no-display');
+	$configLinks.parent().removeClass('selected');
+}
+
+$(window).on('hashchange', (e) => {
+	$pages.addClass('no-display');
+
+	switch (location.hash) {
+	case '#application':
+		navigateToApplication();
+		break;
+	case '#communications':
+		navigateToCommunications();
+		break;
+	default:
+		navigateToApplication();
+		break;
+	}
+}).trigger('hashchange');
