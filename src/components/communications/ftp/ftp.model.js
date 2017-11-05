@@ -39,5 +39,8 @@ export default CommunicationsBaseModel.extend({
 				<ftppath>${this.get('ftppath')}</ftppath>
 			</ftpSettings>
 		`;
+	},
+	isNew: function() {
+		return true;
 	}
 });

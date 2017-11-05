@@ -3,6 +3,7 @@ import CommunicationsBaseModel from '../CommunicationsBaseModel';
 export default CommunicationsBaseModel.extend({
 	defaults: function () {
 		return {
+			id: '',
 			smtpHost: '',
 			smtpPort: '',
 			smtpUser: '',
