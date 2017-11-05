@@ -2,8 +2,8 @@ import $ from 'jquery';
 
 const $pages = $('.page');
 const $comspage = $('.coms-page');
-const $configpage = $('.config-page');
-const $configLinks = $('.config-link');
+const $configpage = $('.application-page');
+const $configLinks = $('.application-link');
 const $comsLinks = $('.coms-link');
 
 let applicationLoaded = false;
