@@ -14,11 +14,11 @@ export default Backbone.View.extend({
 	},
 	save: function () {
 		const updatedData = {
-			authKey: this.$el.find('#authentication-key').val()
-			// authFilterTolerance: this.$el.find('#ftp-address').val(),
-			// authRedirectTolerance: this.$el.find('#ftp-address').val(),
-			// authRequestTolerance: this.$el.find('#ftp-address').val(),
-			// authServletTolerance: this.$el.find('#ftp-address').val()
+			authKey: this.$el.find('#authentication-key').val(),
+			authFilterTolerance: this.$el.find('#authentication-duration').val(),
+			authRedirectTolerance: this.$el.find('#authentication-duration').val(),
+			authRequestTolerance: this.$el.find('#authentication-duration').val(),
+			authServletTolerance: this.$el.find('#authentication-duration').val()
 		};
 		this.$el.trigger('save', updatedData);
 	}
