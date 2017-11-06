@@ -46,4 +46,5 @@ $(window).on('hashchange', (e) => {
 		navigateToApplication();
 		break;
 	}
+	//TODO load remaining background pages async?
 }).trigger('hashchange');
