@@ -9,19 +9,7 @@ export default CommunicationsBaseModel.extend({
 			billingId: ''
 		};
 	},
-	urlRoot: './communications/clients',
-	parse: function (xmlDoc) {
-		const idNode = xmlDoc.querySelector('id');
-		const nameNode = xmlDoc.querySelector('name');
-		const thirdPartyNode = xmlDoc.querySelector('thirdParty');
-		const billingIdNode = xmlDoc.querySelector('billingId');
-		return {
-			id: idNode && idNode.textContent,
-			name: nameNode && nameNode.textContent,
-			thirdParty: thirdPartyNode && thirdPartyNode.textContent,
-			billingId: billingIdNode && billingIdNode.textContent,
-		};
-	},
+	urlRoot: './communications/clients/',
 	toXML: function () {
 		return `
 			<clientDetail href="client/${this.get('id')}">
