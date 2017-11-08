@@ -40,6 +40,7 @@ export default CommunicationsBaseModel.extend({
 			</ftpSettings>
 		`;
 	},
+	//eslint-disable-next-line lodash/prefer-constant
 	isNew: function() {
 		return true;
 	}
